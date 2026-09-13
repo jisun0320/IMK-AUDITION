@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMK AUDITION — International Concerto Audition 2027</title>
+<meta name="description" content="IMK International Concerto Audition 2027. Perform Beethoven's Triple Concerto with the North Czech Philharmonic Orchestra at the Rudolfinum, Prague. Piano · Violin · Cello. Deadline 30 November 2026.">
+<meta property="og:title" content="IMK AUDITION — From Audition to the World Stage">
+<meta property="og:description" content="Beethoven Triple Concerto · New Year's Concerts in Prague & Teplice · January 2027. Video audition open to pianists, violinists and cellists worldwide.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     IMK AUDITION — design tokens
+     Navy / white system, made to be reused every year.
+     ============================================================ */
+  :root {
+    --navy: #0B1F3A;
+    --navy-deep: #071527;
+    --navy-soft: #1C3559;
+    --ink: #14213D;
+    --text: #2B3445;
+    --muted: #6B7280;
+    --line: #DCE1E8;
+    --line-soft: #EDF0F4;
+    --paper: #FFFFFF;
+    --paper-tint: #F6F8FB;
+    --accent: #2F5C9E;        /* link / hover blue */
+    --serif: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --max: 1120px;
+    --gutter: clamp(20px, 5vw, 48px);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    font-weight: 300;
+    color: var(--text);
+    background: var(--paper);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+  }
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; color: var(--navy); margin: 0; line-height: 1.15; }
+  p { margin: 0 0 1em; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  img { max-width: 100%; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); }
+
+  /* ---------- Eyebrow / labels ---------- */
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    font-weight: 500; color: var(--muted); margin-bottom: 18px;
+  }
+  .eyebrow::before {
+    content: ""; display: inline-block; width: 28px; height: 1px;
+    background: var(--navy); vertical-align: middle; margin-right: 12px;
+  }
+  .on-navy .eyebrow { color: rgba(255,255,255,.65); }
+  .on-navy .eyebrow::before { background: rgba(255,255,255,.65); }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--navy);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+  .brand:hover { text-decoration: none; }
+  .brand .mark { font-family: var(--serif); font-weight: 600; font-size: 22px; letter-spacing: .12em; color: #fff; }
+  .brand .sub { font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.6); font-weight: 500; }
+  .menu { display: flex; gap: 34px; align-items: center; }
+  .menu a { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.82); font-weight: 400; }
+  .menu a:hover { color: #fff; text-decoration: none; }
+  .has-sub { position: relative; }
+  .has-sub > a::after { content: ""; display: inline-block; width: 5px; height: 5px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg); margin-left: 8px; vertical-align: 3px; }
+  .dd {
+    position: absolute; top: 100%; left: -18px; min-width: 170px; padding: 10px 0; margin-top: 18px;
+    background: #fff; border: 1px solid var(--line); box-shadow: 0 12px 30px rgba(11,31,58,.12);
+    display: none; flex-direction: column;
+  }
+  .dd::before { content: ""; position: absolute; top: -19px; left: 0; right: 0; height: 19px; }
+  .has-sub:hover .dd, .has-sub:focus-within .dd { display: flex; }
+  .menu .dd a { color: var(--ink); padding: 10px 20px; font-size: 12px; text-transform: none; letter-spacing: .04em; }
+  .menu .dd a:hover { background: var(--paper-tint); color: var(--navy); }
+  .menu .btn.solid { background: #fff; color: var(--navy); border-color: #fff; }
+  .menu .btn.solid:hover { background: var(--paper-tint); border-color: var(--paper-tint); }
+  .burger span { background: #fff; }
+  .btn {
+    display: inline-block; padding: 12px 26px; border-radius: 2px;
+    font-family: var(--sans); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; font-weight: 500;
+    border: 1px solid var(--navy); color: var(--navy); background: transparent;
+    transition: background .2s, color .2s; cursor: pointer;
+  }
+  .btn:hover { background: var(--navy); color: #fff; text-decoration: none; }
+  .btn.solid { background: var(--navy); color: #fff; }
+  .btn.solid:hover { background: var(--navy-soft); border-color: var(--navy-soft); }
+  .btn.light { border-color: #fff; color: #fff; }
+  .btn.light:hover { background: #fff; color: var(--navy); }
+  .menu .btn { padding: 9px 18px; font-size: 11px; }
+  .burger { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+  .burger span { display: block; width: 22px; height: 1.5px; background: #fff; margin: 5px 0; }
+
+  /* ---------- Hero ---------- */
+  .hero { background: var(--paper); text-align: center; }
+  .hero .wrap { padding-block: clamp(56px, 8vw, 96px) 0; }
+  .hero .season { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; font-weight: 500; }
+  .hero h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 400; letter-spacing: -.01em; margin-inline: auto; max-width: 16ch; }
+  .hero h1 em { font-style: italic; font-weight: 400; }
+  .hero .lede { max-width: 760px; text-wrap: balance; margin: 26px auto 0; font-size: clamp(16px, 1.5vw, 18.5px); color: var(--text); line-height: 1.7; }
+  .hero .cta { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 36px; }
+
+  /* Carousel — every image is cropped to the same 16:9 frame regardless of its own ratio */
+  .carousel { position: relative; margin: clamp(40px, 6vw, 64px) auto 0; max-width: var(--max); aspect-ratio: 16 / 9; overflow: hidden; background: var(--navy-deep); }
+  .carousel .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; }
+  .carousel .slide.active { opacity: 1; }
+  .carousel .slide img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .carousel .caption {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 28px 22px; text-align: left;
+    background: linear-gradient(to top, rgba(7,21,39,.85), rgba(7,21,39,0)); color: #fff;
+  }
+  .carousel .caption strong { display: block; font-family: var(--serif); font-size: 22px; font-weight: 500; }
+  .carousel .caption span { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.7); font-weight: 500; }
+  .carousel .arrow {
+    position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border: 0; cursor: pointer;
+    background: rgba(255,255,255,.85); color: var(--navy); font-size: 18px; display: grid; place-items: center; transition: background .2s;
+  }
+  .carousel .arrow:hover { background: #fff; }
+  .carousel .arrow.prev { left: 16px; } .carousel .arrow.next { right: 16px; }
+  .carousel .dots { position: absolute; right: 24px; bottom: 26px; display: flex; gap: 8px; }
+  .carousel .dots button { width: 8px; height: 8px; border-radius: 50%; border: 1px solid #fff; background: transparent; padding: 0; cursor: pointer; }
+  .carousel .dots button.on { background: #fff; }
+  .carousel.single .arrow, .carousel.single .dots { display: none; }
+
+  /* Venue & orchestra links under the carousel */
+  .partners { border-bottom: 1px solid var(--line); }
+  .partners .wrap { display: grid; grid-template-columns: 1fr 1fr; }
+  .partner { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; text-decoration: none; color: var(--navy); }
+  .partner:first-child { border-right: 1px solid var(--line); padding-right: 32px; }
+  .partner:last-child { padding-left: 32px; }
+  .partner:hover { text-decoration: none; }
+  .partner .k { font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 4px; }
+  .partner .v { font-family: var(--serif); font-size: 21px; font-weight: 500; line-height: 1.2; }
+  .partner .v small { display: block; font-family: var(--sans); font-size: 12.5px; color: var(--muted); font-weight: 300; margin-top: 2px; }
+  .partner .go { flex: none; width: 40px; height: 40px; border: 1px solid var(--navy); border-radius: 50%; display: grid; place-items: center; transition: background .2s, color .2s; }
+  .partner .go { width: 46px; height: 46px; }
+  .partner .go svg { width: 22px; height: 22px; }
+  .partner:hover .go { background: var(--navy); color: #fff; }
+
+  /* ---------- Key facts strip ---------- */
+  .facts { border-bottom: 1px solid var(--line); background: var(--paper); }
+  .facts .grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .fact { padding: 28px 24px; border-right: 1px solid var(--line); }
+  .fact:first-child { padding-left: 0; }
+  .fact:last-child { border-right: 0; }
+  .fact .k { font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 8px; }
+  .fact .v { font-family: var(--serif); font-size: 24px; color: var(--navy); font-weight: 500; line-height: 1.2; }
+  .fact .n { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+
+  /* ---------- Sections ---------- */
+  section { padding-block: clamp(64px, 9vw, 112px); }
+  section.tint { background: var(--paper-tint); }
+  section.on-navy { background: var(--navy); color: rgba(255,255,255,.85); }
+  section.on-navy h2, section.on-navy h3 { color: #fff; }
+  h2 { font-size: clamp(30px, 3.6vw, 44px); font-weight: 400; }
+  h3 { font-size: 22px; }
+  .two { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .lead { font-size: 18px; line-height: 1.75; color: var(--ink); }
+  .body p { font-size: 15.5px; color: var(--text); }
+
+  /* Concerts */
+  .concerts { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 56px; }
+  .card {
+    border: 1px solid var(--line); background: #fff; padding: 36px 34px;
+    position: relative;
+  }
+  .card.featured { border-color: var(--navy); }
+  .card.featured::before {
+    content: "Main concert"; position: absolute; top: -1px; right: 24px;
+    background: var(--navy); color: #fff; font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+    padding: 6px 12px; font-weight: 500;
+  }
+  .card .date { font-family: var(--serif); font-size: 32px; color: var(--navy); font-weight: 500; line-height: 1.1; }
+  .card .date small { display: block; font-family: var(--sans); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 6px; font-weight: 500; }
+  .card h3 { margin-top: 20px; font-size: 24px; }
+  .card .place { color: var(--muted); font-size: 14.5px; margin-top: 4px; }
+  .dl { margin: 22px 0 0; display: grid; grid-template-columns: max-content 1fr; gap: 8px 20px; font-size: 14.5px; }
+  .dl dt { color: var(--muted); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 500; padding-top: 3px; }
+  .dl dd { margin: 0; color: var(--ink); }
+  .repertoire { margin-top: 56px; padding: 40px; background: var(--navy); color: #fff; display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; }
+  .repertoire .label { white-space: nowrap; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.6); font-weight: 500; }
+  .repertoire .work { font-family: var(--serif); font-size: clamp(22px, 2.4vw, 30px); line-height: 1.2; }
+  @media (min-width: 900px) { .repertoire .work { white-space: nowrap; } }
+  .repertoire .work span { display: block; font-size: 15px; font-family: var(--sans); color: rgba(255,255,255,.7); margin-top: 8px; font-weight: 300; }
+
+  /* Audition requirements */
+  .req { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin-top: 48px; background: #fff; }
+  .req > div { padding: 34px 30px; border-right: 1px solid var(--line); }
+  .req > div:last-child { border-right: 0; }
+  .req .num { font-family: var(--serif); font-size: 44px; color: var(--navy); line-height: 1; margin-bottom: 14px; font-weight: 400; }
+  .req h3 { font-size: 20px; margin-bottom: 10px; }
+  .req p { font-size: 14.5px; margin: 0; color: var(--text); }
+  .req ul { margin: 12px 0 0; padding-left: 18px; font-size: 14.5px; }
+  .req li { margin-bottom: 6px; }
+
+  /* Timeline */
+  .timeline { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 56px; position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 0; right: 0; top: 7px; height: 1px; background: rgba(255,255,255,.25); }
+  .tl { padding-right: 24px; position: relative; padding-top: 28px; }
+  .tl::before { content: ""; position: absolute; top: 0; left: 0; width: 15px; height: 15px; border-radius: 50%; background: var(--navy); border: 1.5px solid rgba(255,255,255,.7); }
+  .tl.now::before { background: #fff; }
+  .tl .t { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.6); font-weight: 500; }
+  .tl .d { font-family: var(--serif); font-size: 26px; color: #fff; margin: 8px 0 6px; font-weight: 500; }
+  .tl .s { font-size: 14px; color: rgba(255,255,255,.75); }
+
+  /* Apply */
+  .steps { counter-reset: step; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
+  .step { border-top: 2px solid var(--navy); padding-top: 22px; }
+  .step::before { counter-increment: step; content: "0" counter(step); font-family: var(--serif); font-size: 15px; letter-spacing: .1em; color: var(--muted); }
+  .step h3 { font-size: 21px; margin: 8px 0 10px; }
+  .step p { font-size: 14.5px; margin: 0; }
+  .step .btn { margin-top: 18px; }
+  .fee { margin-top: 56px; border: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; background: #fff; }
+  .fee > div { padding: 36px 34px; }
+  .fee > div:first-child { border-right: 1px solid var(--line); background: var(--paper-tint); }
+  .fee .amount { font-family: var(--serif); font-size: 56px; color: var(--navy); line-height: 1; font-weight: 400; }
+  .fee .amount small { font-size: 14px; font-family: var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); display: block; margin-top: 10px; font-weight: 500; }
+  .fee ul { padding-left: 18px; margin: 0; font-size: 14.5px; }
+  .fee li { margin-bottom: 8px; }
+  .note { font-size: 13px; color: var(--muted); margin-top: 14px; }
+
+  /* Form embed */
+  .form-shell { margin-top: 48px; border: 1px solid var(--line); background: #fff; }
+  .form-shell .bar { padding: 18px 28px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .form-shell .bar strong { font-weight: 500; color: var(--navy); font-size: 14px; letter-spacing: .04em; }
+  .form-shell .bar a { font-size: 13px; }
+  .form-shell iframe { display: block; width: 100%; min-height: 1400px; border: 0; }
+  .form-placeholder { padding: 80px 28px; text-align: center; color: var(--muted); font-size: 14px; }
+
+  /* FAQ */
+  .faq { margin-top: 40px; border-top: 1px solid var(--line); }
+  details { border-bottom: 1px solid var(--line); }
+  summary {
+    cursor: pointer; list-style: none; padding: 22px 0; font-family: var(--serif); font-size: 21px; color: var(--navy);
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-family: var(--sans); font-weight: 300; font-size: 24px; color: var(--muted); transition: transform .2s; }
+  details[open] summary::after { transform: rotate(45deg); }
+  details .a { padding: 0 0 24px; max-width: 760px; font-size: 15px; }
+
+  /* Contact / Footer */
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .contact .big { font-family: var(--serif); font-size: clamp(24px, 3vw, 32px); color: var(--navy); }
+  .contact .lines { font-size: 15px; line-height: 1.9; }
+  .contact .lines span { display: block; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-top: 16px; }
+  footer { background: var(--navy-deep); color: rgba(255,255,255,.6); padding: 40px 0; font-size: 12.5px; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; align-items: center; }
+  footer .brand .mark { color: #fff; }
+  footer .brand .sub { color: rgba(255,255,255,.5); }
+  footer a { color: rgba(255,255,255,.75); }
+
+  /* Closing statement */
+  .closing { text-align: center; }
+  .closing .line { font-family: var(--serif); font-size: clamp(26px, 4vw, 48px); color: var(--navy); line-height: 1.25; font-weight: 400; }
+  .closing .tag { margin-top: 20px; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .closing .btn { margin-top: 36px; }
+
+  /* ---------- Pages (menu-driven, hash routing) ---------- */
+  .page { display: none; }
+  .page.active { display: block; animation: fade .25s ease; }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  .menu a.current { color: #fff; }
+  .menu a.current:not(.btn) { border-bottom: 1px solid rgba(255,255,255,.7); padding-bottom: 2px; }
+
+  /* Sub-navigation inside a page (About) */
+  .subnav { border-bottom: 1px solid var(--line); background: var(--paper-tint); }
+  .subnav .wrap { display: flex; gap: 36px; }
+  .subnav a { padding: 18px 0; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+  .subnav a:hover { color: var(--navy); text-decoration: none; }
+  .subnav a.current { color: var(--navy); border-bottom-color: var(--navy); }
+  .subpage { display: none; }
+  .subpage.active { display: block; }
+
+  /* Greeting */
+  .signature { margin-top: 40px; }
+  .sig-photo { width: 120px; aspect-ratio: 1; border-radius: 50%; background: var(--paper-tint); border: 1px solid var(--line); margin-bottom: 16px; }
+  .sig-name { font-family: var(--serif); font-size: 24px; color: var(--navy); font-weight: 500; }
+  .sig-role { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-top: 4px; }
+  .letter p { font-size: 15.5px; }
+  .letter .closing-line { margin-top: 32px; font-family: var(--serif); font-size: 20px; color: var(--navy); }
+  .body h3 { margin: 32px 0 10px; font-size: 22px; }
+
+  /* About IMK stats */
+  .stats { margin-top: 40px; border-top: 1px solid var(--line); }
+  .stats div { padding: 18px 0; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: 16px; }
+  .stats b { font-family: var(--serif); font-size: 34px; color: var(--navy); font-weight: 500; min-width: 90px; }
+  .stats span { font-size: 13.5px; color: var(--muted); }
+
+  /* Contact page */
+  .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin-top: 48px; background: #fff; }
+  .contact-grid > div { padding: 32px 30px; border-right: 1px solid var(--line); }
+  .contact-grid > div:last-child { border-right: 0; }
+  .contact-grid .k { font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 10px; }
+  .contact-grid .v { font-family: var(--serif); font-size: 21px; color: var(--navy); font-weight: 500; line-height: 1.3; }
+  .contact-grid .v a { color: var(--navy); }
+  .contact-grid .s { font-size: 13.5px; color: var(--muted); margin-top: 6px; line-height: 1.6; }
+
+  /* Justified body text — no ragged right edge */
+  .lead, .body p, .card p, .req p, .step p, .fee li, details .a, .rule p, .rule li, .rep li, .rep-note li, .letter p, .note {
+    text-align: justify; hyphens: auto; -webkit-hyphens: auto; text-justify: inter-word;
+  }
+
+  .dt { color: var(--navy); font-weight: 600; }
+
+  /* Placeholder block */
+  .placeholder { border: 1px dashed var(--line); padding: 48px 32px; text-align: center; color: var(--muted); font-size: 14.5px; background: var(--paper-tint); }
+
+  /* Regulations */
+  .rules { margin-top: 56px; border-top: 1px solid var(--line); }
+  .rule { display: grid; grid-template-columns: 280px 1fr; gap: 32px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+  .rule h3 { font-size: 20px; margin: 0; }
+  .rule p { margin: 0; font-size: 15px; }
+  .rule ul { margin: 0; padding-left: 18px; font-size: 15px; }
+  .rule li { margin-bottom: 6px; }
+
+  /* Repertoire page */
+  .rep-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); margin-top: 48px; background: #fff; }
+  .rep { padding: 32px 30px; border-right: 1px solid var(--line); }
+  .rep:last-child { border-right: 0; }
+  .rep-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 14px; margin-bottom: 16px; }
+  .rep-head h3 { font-size: 26px; }
+  .rep-head span { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 500; white-space: nowrap; }
+  .rep ul { margin: 0; padding-left: 18px; font-size: 14.5px; }
+  .rep li { margin-bottom: 10px; }
+  .rep-note { margin-top: 40px; padding: 32px 34px; background: var(--paper-tint); border: 1px solid var(--line); }
+  .rep-note h3 { font-size: 20px; margin-bottom: 12px; }
+  .rep-note ul { margin: 0; padding-left: 18px; font-size: 14.5px; }
+  .rep-note li { margin-bottom: 6px; }
+
+  /* Brand logo (header & footer) */
+  .brand-logo { height: 30px; width: auto; align-self: center; margin-right: 4px; }
+  .brand { align-items: center; }
+
+  /* Partner logo marquee */
+  .partners-strip { margin-top: clamp(56px, 8vw, 96px); }
+  .marquee { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px 0;
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+  .marquee-track { display: flex; align-items: center; gap: 72px; width: max-content; animation: marquee 32s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-track img { height: 84px; width: auto; max-width: 210px; object-fit: contain; flex: none; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* Logo slots */
+  .logo { display: block; height: 52px; width: auto; margin-bottom: 24px; }
+  .logo-fallback { font-family: var(--serif); font-weight: 600; font-size: 30px; letter-spacing: .14em; color: var(--navy); margin-bottom: 20px; }
+  .footer-logo { height: 32px; margin: 0; }
+
+  /* Gallery — 3-up slider (Concerts page) */
+  .gallery3 { position: relative; overflow: hidden; margin-top: 8px; }
+  .g-track { display: flex; gap: 16px; transition: transform .6s ease; }
+  .g-slide { flex: 0 0 calc((100% - 32px) / 3); aspect-ratio: 4 / 3; background: var(--paper-tint); border: 1px solid var(--line); position: relative; overflow: hidden; }
+  .g-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .g-slide .ph { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; text-align: center; padding: 16px; }
+  .gallery3 .arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border: 1px solid var(--line); cursor: pointer; background: rgba(255,255,255,.92); color: var(--navy); font-size: 18px; display: grid; place-items: center; }
+  .gallery3 .arrow:hover { background: var(--navy); color: #fff; }
+  .gallery3 .arrow.prev { left: 12px; } .gallery3 .arrow.next { right: 12px; }
+
+  /* Jury */
+  .jury { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin-top: 48px; }
+  .juror { text-align: center; }
+  .juror .photo {
+    aspect-ratio: 3 / 4; background: var(--paper-tint); border: 1px solid var(--line);
+    background-image: linear-gradient(135deg, var(--paper-tint) 0 48%, var(--line-soft) 48% 52%, var(--paper-tint) 52%);
+  }
+  .juror img.photo { object-fit: cover; width: 100%; display: block; background: none; }
+  .juror .name { font-family: var(--serif); font-size: 20px; color: var(--navy); margin-top: 14px; font-weight: 500; }
+  .juror .role { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 4px; font-weight: 500; }
+  .juror .bio { font-size: 13.5px; color: var(--text); margin-top: 10px; text-align: left; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .facts .grid { grid-template-columns: repeat(2, 1fr); }
+    .fact { border-right: 0; border-bottom: 1px solid var(--line); padding-left: 0; }
+    .fact:nth-child(odd) { border-right: 1px solid var(--line); padding-right: 24px; }
+    .fact:nth-child(even) { padding-left: 24px; }
+    .fact:nth-last-child(-n+2) { border-bottom: 0; }
+    .two, .concerts, .fee, .contact { grid-template-columns: 1fr; }
+    .fee > div:first-child { border-right: 0; border-bottom: 1px solid var(--line); }
+    .req { grid-template-columns: 1fr; }
+    .req > div { border-right: 0; border-bottom: 1px solid var(--line); }
+    .req > div:last-child { border-bottom: 0; }
+    .timeline { grid-template-columns: 1fr 1fr; gap: 28px 0; }
+    .timeline::before { display: none; }
+    .steps { grid-template-columns: 1fr; }
+    .repertoire { grid-template-columns: 1fr; gap: 16px; }
+    .jury { grid-template-columns: repeat(3, 1fr); }
+    .partners .wrap { grid-template-columns: 1fr; }
+    .g-slide { flex-basis: calc((100% - 16px) / 2); }
+    .contact-grid { grid-template-columns: 1fr; }
+    .rule { grid-template-columns: 1fr; gap: 10px; }
+    .rep-grid { grid-template-columns: 1fr; }
+    .rep { border-right: 0; border-bottom: 1px solid var(--line); }
+    .rep:last-child { border-bottom: 0; }
+    .contact-grid > div { border-right: 0; border-bottom: 1px solid var(--line); }
+    .contact-grid > div:last-child { border-bottom: 0; }
+    .subnav .wrap { gap: 24px; }
+    .partner:first-child { border-right: 0; border-bottom: 1px solid var(--line); padding-right: 0; }
+    .partner:last-child { padding-left: 0; }
+    .carousel .caption strong { font-size: 17px; }
+  }
+  @media (max-width: 560px) { .jury { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 720px) {
+    .menu { display: none; position: absolute; top: 68px; left: 0; right: 0; background: #fff; flex-direction: column; align-items: flex-start; gap: 0; border-bottom: 1px solid var(--line); padding: 8px 0 16px; }
+    .menu.open { display: flex; }
+    .menu a { padding: 12px var(--gutter); width: 100%; }
+    .menu .btn { margin: 8px var(--gutter) 0; width: auto; }
+    .burger { display: block; }
+    .timeline { grid-template-columns: 1fr; }
+    .brand .sub { display: none; }
+    .menu { background: var(--navy); border-bottom-color: rgba(255,255,255,.1); top: 72px; }
+    .has-sub { width: 100%; }
+    .dd { position: static; display: flex; background: transparent; border: 0; box-shadow: none; margin: 0; padding: 0 0 0 16px; }
+    .menu .dd a { color: rgba(255,255,255,.7); }
+    .menu .dd a:hover { background: transparent; color: #fff; }
+    .carousel { aspect-ratio: 4 / 3; }
+    .g-slide { flex-basis: 100%; }
+    .carousel .caption { padding: 32px 18px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     CONFIGURATION — edit these three values each season.
+     1) JOTFORM_URL   : the Jotform link (used for both the embed and the button)
+     2) STRIPE_URL    : the Stripe Payment Link for the €100 audition fee
+     3) CONTACT_EMAIL : where applicants can reach IMK
+     ============================================================ -->
+<script>
+  const CONFIG = {
+    JOTFORM_URL: "",                      // e.g. "https://form.jotform.com/2512345678901"
+    STRIPE_URL: "",                       // e.g. "https://buy.stripe.com/xxxxxxxx"
+    CONTACT_EMAIL: "office@classicimk.com"
+  };
+</script>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <img class="brand-logo" src="images/imk-logo.png" alt="">
+      <span class="mark">IMK</span>
+      <span class="sub">Audition</span>
+    </a>
+    <nav class="menu" id="menu">
+      <div class="has-sub">
+        <a href="#about/greeting" data-parent="about">About</a>
+        <div class="dd">
+          <a href="#about/greeting">Greeting</a>
+          <a href="#about/imk">About IMK</a>
+        </div>
+      </div>
+      <div class="has-sub">
+        <a href="#audition/application" data-parent="audition">Audition</a>
+        <div class="dd">
+          <a href="#audition/application">Application</a>
+          <a href="#audition/repertoire">Repertoire</a>
+        </div>
+      </div>
+      <a href="#concerts">Concerts</a>
+      <a href="#jury">Jury</a>
+      <a href="#contact">Contact</a>
+      <a class="btn solid" href="#apply">Apply Now</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HOME ================= -->
+<div class="page" data-page="home">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="season">IMK International Concerto Audition 2027</div>
+      <h1>From Audition<br>to the <em>World Stage</em></h1>
+      <p class="lede">
+        IMK invites outstanding young pianists, violinists and cellists to perform Beethoven's Triple Concerto
+        with the North Czech Philharmonic Orchestra under Nayden Todorov at the 2027 New Year's Concerts
+        in Prague and Teplice.
+      </p>
+      <div class="cta">
+        <a class="btn solid" href="#apply">Apply Now</a>
+        <a class="btn" href="#concerts">The Concerts</a>
+      </div>
+
+      <!-- CAROUSEL — add more slides by copying a .slide block; images are auto-cropped to 16:9 -->
+      <div class="carousel" id="carousel" aria-label="Concert venues">
+        <div class="slide active">
+          <img src="images/rudolfinum-dvorak-hall.jpg" alt="Dvořák Hall, Rudolfinum, Prague">
+          <div class="caption"><strong>Dvořák Hall, Rudolfinum</strong><span>Prague · 3 January 2027</span></div>
+        </div>
+        <!-- example of a second slide:
+        <div class="slide">
+          <img src="images/teplice.jpg" alt="Teplice">
+          <div class="caption"><strong>Krušnohorské divadlo</strong><span>Teplice · c. 1 January 2027</span></div>
+        </div>
+        -->
+        <button class="arrow prev" aria-label="Previous">&#8249;</button>
+        <button class="arrow next" aria-label="Next">&#8250;</button>
+        <div class="dots"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VENUE & ORCHESTRA LINKS -->
+  <div class="partners">
+    <div class="wrap">
+      <a class="partner" href="https://www.rudolfinum.cz/en/areas/dvorak-hall/" target="_blank" rel="noopener">
+        <div>
+          <div class="k">Venue</div>
+          <div class="v">Rudolfinum — Dvořák Hall<small>Prague, Czech Republic · official website</small></div>
+        </div>
+        <span class="go" aria-hidden="true" title="Concert hall">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M4 10h16M12 3 3 8h18L12 3z"/>
+            <path d="M6 10v9M10 10v9M14 10v9M18 10v9"/>
+          </svg>
+        </span>
+      </a>
+      <a class="partner" href="https://www.severoceskafilharmonie.cz/en/" target="_blank" rel="noopener">
+        <div>
+          <div class="k">Orchestra</div>
+          <div class="v">North Czech Philharmonic Orchestra<small>Teplice, Czech Republic · official website</small></div>
+        </div>
+        <span class="go" aria-hidden="true" title="Orchestra">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0zM9 18.5V5l11-2.5v13"/>
+            <path d="M20 15.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0zM9 9l11-2.5"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <!-- KEY FACTS -->
+  <div class="facts">
+    <div class="wrap grid">
+      <div class="fact">
+        <div class="k">Instruments</div>
+        <div class="v">Piano · Violin · Cello</div>
+        <div class="n">Three soloists, one masterpiece</div>
+      </div>
+      <div class="fact">
+        <div class="k">Application deadline</div>
+        <div class="v">30 November 2026</div>
+        <div class="n">Video audition · online submission</div>
+      </div>
+      <div class="fact">
+        <div class="k">Selection announced</div>
+        <div class="v">Early December</div>
+        <div class="n">First week of December 2026</div>
+      </div>
+      <div class="fact">
+        <div class="k">Audition fee</div>
+        <div class="v">€100</div>
+        <div class="n">Non-refundable</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ABOUT (Greeting / About IMK) ================= -->
+<div class="page" data-page="about">
+  <div class="subnav">
+    <div class="wrap">
+      <a href="#about/greeting" data-sub="greeting">Greeting</a>
+      <a href="#about/imk" data-sub="imk">About IMK</a>
+    </div>
+  </div>
+
+  <!-- Greeting — text to be supplied by IMK; replace the .placeholder block with the letter -->
+  <div class="subpage" data-sub="greeting">
+    <section>
+      <div class="wrap two">
+        <div>
+          <div class="eyebrow">Greeting</div>
+          <h2>Welcome message</h2>
+        </div>
+        <div class="body">
+          <div class="placeholder">A welcome message from IMK will be published here shortly.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- About IMK -->
+  <div class="subpage" data-sub="imk">
+    <section>
+      <div class="wrap two">
+        <div>
+          <div class="eyebrow">About IMK</div>
+          <h2>Since 1992,<br>bridges through music</h2>
+          <div class="stats">
+            <div><b>1992</b><span>Founded in Vienna</span></div>
+            <div><b>200+</b><span>Performances arranged each year</span></div>
+            </div>
+        </div>
+        <div class="body">
+          <p class="lead">
+            IMK — Verein für Internationale Musik- und Kulturförderung — was founded in Vienna in 1992 and has become
+            one of Europe's most active classical concert organisations, putting international artists on many of
+            the world's great stages.
+          </p>
+          <p>
+            Today IMK connects and organises approximately 200 performances each year at renowned concert halls
+            across Europe. As a professional classical concert management agency, IMK partners with music
+            universities around the world, including the Kronberg Academy and the mdw – University of Music and
+            Performing Arts Vienna.
+          </p>
+          <h3>Why orchestral opportunities matter</h3>
+          <p>
+            Solo recitals and chamber music concerts are relatively easy to organise. However, for emerging
+            musicians, even many such performances may not be enough to attract wider attention. Orchestral
+            performances are different: they require a professional orchestra, a large concert hall, extensive
+            organisation and significant financial resources. For young musicians, opportunities to perform as
+            soloists with an orchestra are therefore rare.
+          </p>
+          <p>
+            Even highly talented graduates of prestigious music universities are not automatically given such
+            opportunities. Many turn to international competitions, but even winning a competition may lead to
+            only one orchestral performance, with no guarantee of the next. Recognising this challenge,
+            Ms. Sonja Steindl founded IMK Vienna in 1992 with a clear mission: to create more high-quality and
+            accessible orchestral performance opportunities across Europe.
+          </p>
+          <h3>Schwingungen at the Musikverein</h3>
+          <p>
+            As one of its signature projects, IMK launched the <em>Schwingungen</em> Concert Series at the
+            Musikverein Golden Hall in Vienna in 2006, inviting three to four international orchestras each year.
+            Over the past twenty years, IMK has successfully organised more than 58 concerts at the Golden Hall,
+            with further performances already scheduled through 2028. Through this work IMK has developed unique
+            expertise and extensive know-how in organising orchestral performances at this world-renowned venue.
+          </p>
+          <h3>From music education to the professional stage</h3>
+          <p>
+            Music education should no longer end in the classroom. It must evolve into a system that connects
+            talented young musicians directly to real performance opportunities. Together with its partner
+            universities, IMK is working to make this change a reality — building a bridge from music education
+            to the professional stage. The IMK International Concerto Audition is the next step on that bridge.
+          </p>
+          <p style="margin-top:28px"><a class="btn" href="https://www.schwingungen.at/" target="_blank" rel="noopener">Visit schwingungen.at</a></p>
+        </div>
+      </div>
+
+      <!-- PARTNER LOGOS — continuous carousel. Add a logo by adding one <img> inside .marquee-track (it is duplicated by script). -->
+      <div class="wrap partners-strip">
+        <div class="eyebrow">Partner institutions</div>
+        <div class="marquee">
+          <div class="marquee-track">
+            <img src="images/logo-mdw.png" alt="mdw – University of Music and Performing Arts Vienna">
+            <img src="images/logo-kronberg.jpg" alt="Kronberg Academy">
+            <img src="images/logo-manhattan.png" alt="Manhattan School of Music">
+            <img src="images/logo-gustavmahler.png" alt="Gustav Mahler Private University for Music">
+            <img src="images/logo-karts.gif" alt="Korea National University of Arts">
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ================= CONCERTS ================= -->
+<div class="page" data-page="concerts">
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Selected musicians' concerts</div>
+      <h2>Two stages. One New Year.</h2>
+      <p class="lead" style="margin-top:18px">
+        The three selected soloists will perform the Triple Concerto twice with the North Czech Philharmonic
+        Orchestra: first at the orchestra's own New Year's Concert in Teplice, then at the Rudolfinum in Prague —
+        marking the 200th anniversary year of Beethoven's death.
+      </p>
+
+      <div class="concerts">
+        <div class="card">
+          <div class="date">c. 1 January 2027<small>New Year's Concert · Teplice</small></div>
+          <h3>Teplice, Czech Republic</h3>
+          <div class="place">Home of the North Czech Philharmonic Orchestra</div>
+          <dl class="dl">
+            <dt>Orchestra</dt><dd>North Czech Philharmonic Orchestra</dd>
+            <dt>Conductor</dt><dd>Nayden Todorov</dd>
+            <dt>Note</dt><dd>Exact date and venue to be confirmed with the selected musicians</dd>
+            <dt>Website</dt><dd><a href="https://www.severoceskafilharmonie.cz/en/" target="_blank" rel="noopener">severoceskafilharmonie.cz ↗</a></dd>
+          </dl>
+        </div>
+        <div class="card featured">
+          <div class="date">3 January 2027<small>19:30 · New Year's Concert · Prague</small></div>
+          <h3>Dvořák Hall, Rudolfinum</h3>
+          <div class="place">Prague, Czech Republic</div>
+          <dl class="dl">
+            <dt>Orchestra</dt><dd>North Czech Philharmonic Orchestra</dd>
+            <dt>Conductor</dt><dd>Nayden Todorov</dd>
+            <dt>Occasion</dt><dd>Beethoven 200 — anniversary year of the composer's death</dd>
+            <dt>Website</dt><dd><a href="https://www.rudolfinum.cz/en/areas/dvorak-hall/" target="_blank" rel="noopener">rudolfinum.cz ↗</a></dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="repertoire">
+        <div class="label">Featured repertoire</div>
+        <div class="work">
+          Ludwig van Beethoven — Triple Concerto in C major, Op. 56
+          <span>for Piano, Violin, Cello and Orchestra</span>
+        </div>
+      </div>
+
+      <!-- GALLERY — one row, three photos visible, slides one at a time.
+           Replace each placeholder with <div class="g-slide"><img src="images/xxx.jpg" alt=""></div> -->
+      <div class="gallery3" id="gallery" style="margin-top:56px">
+        <div class="g-track">
+          <div class="g-slide"><div class="ph">Photo 1</div></div>
+          <div class="g-slide"><div class="ph">Photo 2</div></div>
+          <div class="g-slide"><div class="ph">Photo 3</div></div>
+          <div class="g-slide"><div class="ph">Photo 4</div></div>
+          <div class="g-slide"><div class="ph">Photo 5</div></div>
+          <div class="g-slide"><div class="ph">Photo 6</div></div>
+        </div>
+        <button class="arrow prev" aria-label="Previous">&#8249;</button>
+        <button class="arrow next" aria-label="Next">&#8250;</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= JURY ================= -->
+<div class="page" data-page="jury">
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Jury</div>
+      <h2>Five international conductors</h2>
+      <p class="lead" style="margin-top:18px">
+        All audition videos are reviewed by an international jury of five conductors. Each juror evaluates every
+        applicant independently; the three soloists are selected on the combined results.
+      </p>
+
+      <!-- Replace each placeholder with the juror's photo, name, title and a short biography.
+           Copy/paste a .juror block to add more; the grid adjusts automatically. -->
+      <div class="jury">
+        <div class="juror">
+          <div class="photo" aria-hidden="true"></div>
+          <div class="name">To be announced</div>
+          <div class="role">Conductor</div>
+        </div>
+        <div class="juror">
+          <div class="photo" aria-hidden="true"></div>
+          <div class="name">To be announced</div>
+          <div class="role">Conductor</div>
+        </div>
+        <div class="juror">
+          <div class="photo" aria-hidden="true"></div>
+          <div class="name">To be announced</div>
+          <div class="role">Conductor</div>
+        </div>
+        <div class="juror">
+          <div class="photo" aria-hidden="true"></div>
+          <div class="name">To be announced</div>
+          <div class="role">Conductor</div>
+        </div>
+        <div class="juror">
+          <div class="photo" aria-hidden="true"></div>
+          <div class="name">To be announced</div>
+          <div class="role">Conductor</div>
+        </div>
+      </div>
+
+      <p class="note" style="margin-top:32px">The full jury will be announced on this page. Jury decisions are final and
+      no correspondence will be entered into regarding the results.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= AUDITION (Application / Repertoire) ================= -->
+<div class="page" data-page="audition">
+  <div class="subnav">
+    <div class="wrap">
+      <a href="#audition/application" data-sub="application">Application</a>
+      <a href="#audition/repertoire" data-sub="repertoire">Repertoire</a>
+    </div>
+  </div>
+
+  <!-- Application guide -->
+  <div class="subpage" data-sub="application">
+    <section>
+      <div class="wrap">
+        <div class="eyebrow">Application guide</div>
+        <h2>Video audition, open worldwide</h2>
+        <p class="lead" style="margin-top:18px">
+          The IMK International Concerto Audition is open to pianists, violinists and cellists. Applicants are selected
+          through a video audition. Each applicant must submit an audition video of up to 20 minutes and a completed
+          application form. The audition is evaluated by an international jury of five conductors.
+        </p>
+
+        <div class="req">
+          <div>
+            <div class="num">I</div>
+            <h3>Instruments</h3>
+            <p>Piano · Violin · Cello. One soloist is selected for each instrument to form the trio for Beethoven's Triple Concerto.</p>
+          </div>
+          <div>
+            <div class="num">II</div>
+            <h3>Submission</h3>
+            <p>An audition video of up to 20 minutes (Google Drive link) and the completed online application form, together with the €100 audition fee.</p>
+          </div>
+          <div>
+            <div class="num">III</div>
+            <h3>Jury</h3>
+            <p>An international jury of five conductors evaluates all videos. Results are announced in the <b class="dt">first week of December 2026</b>.</p>
+          </div>
+        </div>
+
+        <div class="rules">
+          <div class="rule">
+            <h3>General Provisions</h3>
+            <p>The IMK International Concerto Audition is an international audition open to musicians of all nationalities. All judging is conducted by online video submission (Google Drive link). English is the official language of the audition.</p>
+          </div>
+          <div class="rule">
+            <h3>Instruments &amp; Repertoire</h3>
+            <p>Piano · Violin · Cello. Repertoire requirements for each instrument are set out in detail on the Repertoire tab.</p>
+          </div>
+          <div class="rule">
+            <h3>Age</h3>
+            <p>There is no age limit. All applicants are judged by the same artistic standard.</p>
+          </div>
+          <div class="rule">
+            <h3>Application</h3>
+            <p>Applications are made through the official website. An application is valid only when the application form is completed and the audition fee of €100 is paid. The audition fee is non-refundable, except where the audition is cancelled by the organisers. Applications close on <b class="dt">30 November 2026, 23:59 CET</b>.</p>
+          </div>
+          <div class="rule">
+            <h3>Video Submission</h3>
+            <ul>
+              <li>The audition video may not exceed 20 minutes in total.</li>
+              <li>The performer's hands, instrument and face must be clearly visible throughout the performance.</li>
+              <li>The video must be a continuous, unedited recording of each submitted work. Only minor technical adjustments (e.g. trimming before and after the performance) are permitted.</li>
+              <li>Video and audio quality must be sufficient for the jury to clearly evaluate the performance.</li>
+              <li>Videos recorded on or after <b class="dt">1 January 2026</b> will be accepted.</li>
+              <li>The use of AI-generated performances, deepfakes, synthesised audio, or any technology that materially alters the performance is strictly prohibited.</li>
+              <li>The video must be uploaded to Google Drive and shared as a link set to "Anyone with the link can view". File name: <em>Instrument_LastName_FirstName_Country.mp4</em></li>
+            </ul>
+          </div>
+          <div class="rule">
+            <h3>Judging</h3>
+            <p>Performances are evaluated comprehensively on musicality, technique, interpretation, expression and overall artistry by an international jury of five conductors. The decisions of the jury are final. No appeals are accepted.</p>
+          </div>
+          <div class="rule">
+            <h3>Selection &amp; Concerts</h3>
+            <p>Three soloists — one pianist, one violinist and one cellist — are selected. The selected musicians perform Beethoven's Triple Concerto in C major, Op. 56 with the North Czech Philharmonic Orchestra under Nayden Todorov at the New Year's Concert in Teplice (<b class="dt">c. 1 January 2027</b>) and at the New Year's Concert in the Dvořák Hall of the Rudolfinum, Prague (<b class="dt">3 January 2027</b>). Details of rehearsals, travel and accommodation are communicated directly to the selected musicians.</p>
+          </div>
+          <div class="rule">
+            <h3>Copyright &amp; Personal Data</h3>
+            <p>Applicants consent to the use of submitted videos and photographs for the promotion of the audition and the concerts. Personal data is used solely for the administration of the audition.</p>
+          </div>
+          <div class="rule">
+            <h3>Disqualification</h3>
+            <p>Submission of false information, violation of the video rules, misconduct, copyright infringement or violation of these regulations may result in disqualification without refund of the audition fee.</p>
+          </div>
+          <div class="rule">
+            <h3>Agreement</h3>
+            <p>By submitting an application, the applicant is deemed to have read and agreed to all regulations of the IMK International Concerto Audition.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Repertoire -->
+  <div class="subpage" data-sub="repertoire">
+    <section>
+      <div class="wrap">
+        <div class="eyebrow">Repertoire</div>
+        <h2>Audition repertoire</h2>
+        <p class="lead" style="margin-top:18px">
+          The audition video may not exceed 20 minutes in total. Applicants perform one complete movement from a concerto
+          of their choice. In addition, applicants may include a passage from the solo part of Beethoven's Triple Concerto,
+          Op. 56, provided the total duration remains within 20 minutes.
+        </p>
+
+        <div class="rep-grid">
+          <div class="rep">
+            <div class="rep-head"><h3>Piano</h3><span>Maximum 20 minutes</span></div>
+            <ul>
+              <li>One complete movement from a piano concerto of the applicant's choice, performed in its entirety from beginning to end.</li>
+              <li>Accompaniment: piano reduction (second piano) or orchestra.</li>
+              <li>When performing with piano accompaniment, standard cuts or reductions of orchestral tutti passages are permitted. No cuts to the solo part.</li>
+              <li>If the movement contains a cadenza, the cadenza must be included in the performance.</li>
+              <li>Optional: an excerpt from the piano part of Beethoven's Triple Concerto, Op. 56.</li>
+            </ul>
+          </div>
+          <div class="rep">
+            <div class="rep-head"><h3>Violin</h3><span>Maximum 20 minutes</span></div>
+            <ul>
+              <li>One complete movement from a violin concerto of the applicant's choice, performed in its entirety without arbitrary cuts, omissions or edits to the solo part.</li>
+              <li>Accompaniment: piano reduction or orchestra.</li>
+              <li>When performing with piano accompaniment, standard cuts of orchestral tutti passages are permitted.</li>
+              <li>If the movement contains a cadenza, the cadenza must be included in the performance.</li>
+              <li>Optional: an excerpt from the violin part of Beethoven's Triple Concerto, Op. 56.</li>
+            </ul>
+          </div>
+          <div class="rep">
+            <div class="rep-head"><h3>Cello</h3><span>Maximum 20 minutes</span></div>
+            <ul>
+              <li>One complete movement from a cello concerto of the applicant's choice, performed in its entirety without cuts to the solo part.</li>
+              <li>Accompaniment: piano reduction or orchestra.</li>
+              <li>When performing with piano accompaniment, standard cuts of orchestral tutti passages are permitted.</li>
+              <li>If the movement contains a cadenza, the cadenza must be included in the performance.</li>
+              <li>Optional: an excerpt from the cello part of Beethoven's Triple Concerto, Op. 56.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rep-note">
+          <h3>General notes</h3>
+          <ul>
+            <li>Works may be performed from memory or with the score.</li>
+            <li>Each work must be recorded as one continuous, unedited take. Separate works may be recorded separately and combined into one video.</li>
+            <li>Please state the composer, work and movement in the application form exactly as performed.</li>
+            <li>The jury reserves the right to disregard any portion of the video exceeding 20 minutes.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ================= HOW TO APPLY ================= -->
+<div class="page" data-page="apply">
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">How to apply</div>
+      <h2>Three steps to the stage</h2>
+
+      <div class="steps">
+        <div class="step">
+          <h3>Prepare your video</h3>
+          <p>Record your audition video (max. 20 minutes) and upload it to Google Drive. Set sharing to
+          "Anyone with the link can view" and copy the link.</p>
+        </div>
+        <div class="step">
+          <h3>Pay the audition fee</h3>
+          <p>Pay the non-refundable fee of €100 by card through our secure payment page. Keep the payment
+          confirmation email — you will enter the payer's name in the form.</p>
+          <a class="btn solid" data-link="stripe" href="#" target="_blank" rel="noopener">Pay €100 audition fee</a>
+        </div>
+        <div class="step">
+          <h3>Submit the application form</h3>
+          <p>Complete the online form below with your details, biography, photo, Google Drive link and payment
+          reference. You will receive a confirmation email once submitted.</p>
+          <a class="btn" data-link="jotform" href="#" target="_blank" rel="noopener">Open form in new window</a>
+        </div>
+      </div>
+
+      <div class="fee">
+        <div>
+          <div class="amount">€100<small>Audition fee · non-refundable</small></div>
+          <p class="note">Payments are processed securely by Stripe to IMK, Vienna. All major cards are accepted in
+          any currency; the charge is made in euros.</p>
+        </div>
+        <div>
+          <h3 style="margin-bottom:14px">Before you submit, please check</h3>
+          <ul>
+            <li>Your video is no longer than 20 minutes and the Drive link opens without a permission request.</li>
+            <li>Your fee has been paid and you have the confirmation from Stripe.</li>
+            <li>Your biography (max. 200 words) and a recent photo are ready to upload.</li>
+            <li>You are available in the Czech Republic from late December 2026 to 3 January 2027.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Jotform embed -->
+      <div class="form-shell" id="form-shell">
+        <div class="bar">
+          <strong>APPLICATION FORM — IMK International Concerto Audition 2027</strong>
+          <a data-link="jotform" href="#" target="_blank" rel="noopener">Having trouble? Open the form in a new window →</a>
+        </div>
+        <div id="form-mount">
+          <div class="form-placeholder">The application form will appear here once the Jotform link is added in the CONFIG block.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (part of the How to Apply page) -->
+  <section class="tint">
+    <div class="wrap">
+      <div class="eyebrow">Questions</div>
+      <h2>Frequently asked</h2>
+      <div class="faq">
+        <details>
+          <summary>Is there an age limit?</summary>
+          <div class="a">The audition is intended for young musicians at the start of their professional careers.
+          Please contact us if you are unsure whether you are eligible.</div>
+        </details>
+        <details>
+          <summary>What should I play in my audition video?</summary>
+          <div class="a">Repertoire is your choice. The jury is primarily looking for musicianship, technical command
+          and stage presence. Including a passage from Beethoven's Triple Concerto is welcome but not required.</div>
+        </details>
+        <details>
+          <summary>Can I apply as a pre-formed trio?</summary>
+          <div class="a">Applications are individual. Members of an existing trio are welcome to apply separately
+          and may mention their ensemble in the biography; however, the jury selects each soloist independently.</div>
+        </details>
+        <details>
+          <summary>Are travel and accommodation covered?</summary>
+          <div class="a">Details of travel, accommodation and rehearsal schedules will be communicated directly to the
+          selected musicians after the announcement in December.</div>
+        </details>
+        <details>
+          <summary>Is the audition fee refundable?</summary>
+          <div class="a">No. The €100 fee covers the administration of the audition and is non-refundable in all cases,
+          including incomplete or withdrawn applications.</div>
+        </details>
+        <details>
+          <summary>How will I know my application was received?</summary>
+          <div class="a">You will receive an automatic confirmation email after submitting the form. If you do not
+          receive one within 24 hours, please check your spam folder and then contact us.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="page" data-page="contact">
+  <section>
+    <div class="wrap">
+      <div class="two">
+        <div>
+          <div class="eyebrow">Contact</div>
+          <h2>Questions about the audition?<br>We are happy to help.</h2>
+        </div>
+        <div class="body">
+          <p class="lead">
+            For all enquiries regarding the IMK International Concerto Audition — eligibility, the application form,
+            payment, or the concerts — please contact the IMK office in Vienna. We reply in English, German and Korean.
+          </p>
+          <p>Please include your name, instrument and country in your first message so that we can help you quickly.</p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="k">Email</div>
+          <div class="v"><a data-link="mail" id="contact-email" href="#">office@classicimk.com</a></div>
+          <div class="s">Audition &amp; application enquiries<br>Reply within 2–3 working days</div>
+        </div>
+        <div>
+          <div class="k">Website</div>
+          <div class="v"><a href="https://www.schwingungen.at/" target="_blank" rel="noopener">schwingungen.at</a></div>
+          <div class="s">IMK Vienna — classical concerts worldwide<br>Instagram <a href="https://www.instagram.com/classicimk" target="_blank" rel="noopener">@classicimk</a></div>
+        </div>
+        <div>
+          <div class="k">Office</div>
+          <div class="v">IMK — Verein für Internationale Musik- und Kulturförderung</div>
+          <div class="s">Lothringerstraße 20<br>1030 Vienna, Austria<br>(Wiener Konzerthaus)</div>
+        </div>
+      </div>
+
+      <p class="note" style="margin-top:24px">Organised by IMK Vienna in cooperation with the North Czech Philharmonic Orchestra.
+      Concert enquiries in the Czech Republic: <a href="https://www.severoceskafilharmonie.cz/en/" target="_blank" rel="noopener">severoceskafilharmonie.cz</a></p>
+    </div>
+  </section>
+  <section class="closing tint">
+    <div class="wrap">
+      <div class="line">Three soloists. One masterpiece.<br>One world stage.</div>
+      <div class="tag">Prague · Rudolfinum · Beethoven · 2027</div>
+      <a class="btn solid" href="#apply">Apply Now</a>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><img class="brand-logo" src="images/imk-logo.png" alt=""><span class="mark">IMK</span><span class="sub">Audition</span></a>
+    <div>© <span id="year"></span> IMK. All rights reserved. · <a href="#apply">Apply</a> · <a data-link="mail" href="#">Contact</a></div>
+  </div>
+</footer>
+
+<script>
+  // --- wire up CONFIG values ---------------------------------------------
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const set = (sel, href) => document.querySelectorAll(sel).forEach(a => { a.href = href; });
+  set('[data-link="mail"]', 'mailto:' + CONFIG.CONTACT_EMAIL);
+  document.getElementById('contact-email').textContent = CONFIG.CONTACT_EMAIL;
+
+  if (CONFIG.STRIPE_URL) {
+    set('[data-link="stripe"]', CONFIG.STRIPE_URL);
+  } else {
+    document.querySelectorAll('[data-link="stripe"]').forEach(a => {
+      a.removeAttribute('target');
+      a.addEventListener('click', e => { e.preventDefault(); alert('Payment link coming soon.'); });
+    });
+  }
+
+  if (CONFIG.JOTFORM_URL) {
+    set('[data-link="jotform"]', CONFIG.JOTFORM_URL);
+    const mount = document.getElementById('form-mount');
+    mount.innerHTML = '';
+    const f = document.createElement('iframe');
+    f.src = CONFIG.JOTFORM_URL;
+    f.title = 'IMK Audition application form';
+    f.setAttribute('allow', 'geolocation; microphone; camera; fullscreen');
+    f.setAttribute('scrolling', 'no');
+    mount.appendChild(f);
+    // let Jotform resize the iframe to its content height
+    window.addEventListener('message', ev => {
+      if (typeof ev.data !== 'string' || !ev.data.startsWith('setHeight:')) return;
+      const h = parseInt(ev.data.split(':')[1], 10);
+      if (h > 200) f.style.minHeight = (h + 20) + 'px';
+    });
+  } else {
+    document.querySelectorAll('[data-link="jotform"]').forEach(a => {
+      a.removeAttribute('target');
+      a.addEventListener('click', e => { e.preventDefault(); alert('Application form coming soon.'); });
+    });
+  }
+
+  // --- page routing (hash → page, optional /sub) --------------------------
+  const PAGES = ['home','about','concerts','jury','audition','apply','contact'];
+  const DEFAULT_SUB = { about: 'greeting', audition: 'application' };
+  function showPage() {
+    const parts = (location.hash || '#home').slice(1).split('/');
+    let id = parts[0]; if (!PAGES.includes(id)) id = 'home';
+    const sub = parts[1] || DEFAULT_SUB[id];
+    document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.dataset.page === id));
+    const page = document.querySelector('.page[data-page="' + id + '"]');
+    page.querySelectorAll('.subpage').forEach(s => s.classList.toggle('active', s.dataset.sub === sub));
+    page.querySelectorAll('.subnav a').forEach(a => a.classList.toggle('current', a.dataset.sub === sub));
+    document.querySelectorAll('.menu a').forEach(a => {
+      if (a.classList.contains('btn')) return;
+      const target = (a.dataset.parent || a.getAttribute('href').slice(1).split('/')[0]);
+      a.classList.toggle('current', target === id && !a.closest('.dd'));
+    });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+  window.addEventListener('hashchange', showPage);
+  showPage();
+
+  // --- carousels (auto-advance every 6 s; controls hidden when only one slide)
+  document.querySelectorAll('.carousel').forEach(c => {
+    const slides = [...c.querySelectorAll('.slide')];
+    const dots = c.querySelector('.dots');
+    if (slides.length < 2) { c.classList.add('single'); return; }
+    let i = 0, timer;
+    slides.forEach((_, n) => {
+      const d = document.createElement('button'); d.setAttribute('aria-label', 'Slide ' + (n + 1));
+      d.addEventListener('click', () => go(n)); dots.appendChild(d);
+    });
+    function go(n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => s.classList.toggle('active', k === i));
+      dots.querySelectorAll('button').forEach((d, k) => d.classList.toggle('on', k === i));
+      clearInterval(timer); timer = setInterval(() => go(i + 1), 6000);
+    }
+    c.querySelector('.prev').addEventListener('click', () => go(i - 1));
+    c.querySelector('.next').addEventListener('click', () => go(i + 1));
+    go(0);
+  });
+
+  // --- 3-up gallery slider (advances one photo every 5 s)
+  (function () {
+    const g = document.getElementById('gallery'); if (!g) return;
+    const track = g.querySelector('.g-track'), slides = track.children;
+    let i = 0, timer;
+    const visible = () => window.innerWidth <= 720 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+    function go(n) {
+      const max = Math.max(0, slides.length - visible());
+      i = n > max ? 0 : n < 0 ? max : n;
+      const gap = 16, w = slides[0].getBoundingClientRect().width + gap;
+      track.style.transform = 'translateX(' + (-i * w) + 'px)';
+      clearInterval(timer); timer = setInterval(() => go(i + 1), 5000);
+    }
+    g.querySelector('.prev').addEventListener('click', () => go(i - 1));
+    g.querySelector('.next').addEventListener('click', () => go(i + 1));
+    window.addEventListener('resize', () => go(i));
+    go(0);
+  })();
+
+  // --- partner logo marquee: duplicate the track so the loop is seamless
+  document.querySelectorAll('.marquee-track').forEach(t => { t.innerHTML += t.innerHTML; });
+
+  // --- mobile menu ---------------------------------------------------------
+  const burger = document.getElementById('burger'), menu = document.getElementById('menu');
+  burger.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+</script>
+</body>
+</html>
