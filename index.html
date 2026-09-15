@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMK AUDITION — International Concerto Audition 2027</title>
+<title>IMK AUDITION — From Audition to the Dvořák Hall</title>
 <meta name="description" content="IMK International Concerto Audition 2027. Perform Beethoven's Triple Concerto with the North Czech Philharmonic Orchestra at the Rudolfinum, Prague. Piano · Violin · Cello. Deadline 30 November 2026.">
-<meta property="og:title" content="IMK AUDITION — From Audition to the World Stage">
+<meta property="og:title" content="IMK AUDITION — From Audition to the Dvořák Hall, Rudolfinum Prague">
 <meta property="og:description" content="Beethoven Triple Concerto · New Year's Concerts in Prague & Teplice · January 2027. Video audition open to pianists, violinists and cellists worldwide.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,7 +76,7 @@
   .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
   .brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
   .brand:hover { text-decoration: none; }
-  .brand .mark { font-family: var(--serif); font-weight: 600; font-size: 22px; letter-spacing: .12em; color: #fff; }
+  .brand .mark { font-family: var(--serif); font-weight: 600; font-size: 22px; letter-spacing: .01em; color: #fff; white-space: nowrap; }
   .brand .sub { font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.6); font-weight: 500; }
   .menu { display: flex; gap: 34px; align-items: center; }
   .menu a { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.82); font-weight: 400; }
@@ -114,8 +114,10 @@
   .hero { background: var(--paper); text-align: center; }
   .hero .wrap { padding-block: clamp(56px, 8vw, 96px) 0; }
   .hero .season { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; font-weight: 500; }
-  .hero h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 400; letter-spacing: -.01em; margin-inline: auto; max-width: 16ch; }
-  .hero h1 em { font-style: italic; font-weight: 400; }
+  .hero h1 { font-size: clamp(44px, 6.6vw, 80px); font-weight: 700; letter-spacing: -.01em; margin-inline: auto; max-width: 16ch; }
+  .hero h1 strong { font-weight: 700; }
+  .hero h1 .h1-top { font-weight: 600; font-size: .62em; display: inline-block; margin-bottom: .12em; }
+  .hero h1 .h1-sub { font-weight: 600; font-size: .5em; letter-spacing: .04em; display: inline-block; margin-top: .25em; }
   .hero .lede { max-width: 760px; text-wrap: balance; margin: 26px auto 0; font-size: clamp(16px, 1.5vw, 18.5px); color: var(--text); line-height: 1.7; }
   .hero .cta { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 36px; }
 
@@ -293,7 +295,7 @@
 
   /* Greeting */
   .signature { margin-top: 40px; }
-  .sig-photo { width: 120px; aspect-ratio: 1; border-radius: 50%; background: var(--paper-tint); border: 1px solid var(--line); margin-bottom: 16px; }
+  .sig-photo { display: block; width: 140px; aspect-ratio: 1; border-radius: 50%; background: var(--paper-tint); border: 1px solid var(--line); margin-bottom: 16px; object-fit: cover; }
   .sig-name { font-family: var(--serif); font-size: 24px; color: var(--navy); font-weight: 500; }
   .sig-role { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-top: 4px; }
   .letter p { font-size: 15.5px; }
@@ -378,16 +380,25 @@
   .body p.tagline { font-family: var(--serif); font-size: 22px; color: var(--navy); line-height: 1.4; margin-top: 28px; text-align: left !important; }
 
   /* Jury */
-  .jury { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin-top: 48px; }
-  .juror { text-align: center; }
+  .jury { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; align-items: start; }
+  .juror { display: block; width: 100%; text-align: center; background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: default; }
+  .juror.has-msg { cursor: pointer; }
   .juror .photo {
-    aspect-ratio: 3 / 4; background: var(--paper-tint); border: 1px solid var(--line);
-    background-image: linear-gradient(135deg, var(--paper-tint) 0 48%, var(--line-soft) 48% 52%, var(--paper-tint) 52%);
+    display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: var(--paper-tint); border: 1px solid var(--line);
+    transition: border-color .2s, box-shadow .2s;
   }
-  .juror img.photo { object-fit: cover; width: 100%; display: block; background: none; }
-  .juror .name { font-family: var(--serif); font-size: 20px; color: var(--navy); margin-top: 14px; font-weight: 500; }
-  .juror .role { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 4px; font-weight: 500; }
-  .juror .bio { font-size: 13.5px; color: var(--text); margin-top: 10px; text-align: left; }
+  .juror.has-msg:hover .photo, .juror.active .photo { border-color: var(--navy); box-shadow: 0 0 0 1px var(--navy); }
+  .juror .name { font-family: var(--serif); font-size: 21px; color: var(--navy); margin-top: 14px; font-weight: 500; }
+  .juror .role { font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 4px; font-weight: 500; }
+  .juror .more { display: inline-block; margin-top: 10px; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--navy); font-weight: 500; border-bottom: 1px solid var(--navy); padding-bottom: 2px; }
+  .juror.active .more { background: var(--navy); color: #fff; padding: 4px 10px; border: 0; }
+  .jury-msg { display: none; margin-top: 40px; border: 1px solid var(--line); background: var(--paper-tint); padding: 36px 40px; animation: fade .25s ease; }
+  .jury-msg.active { display: block; }
+  .jm-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .jm-head .eyebrow { margin-bottom: 20px; }
+  .jm-close { background: none; border: 1px solid var(--line); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 18px; color: var(--muted); line-height: 1; }
+  .jm-close:hover { border-color: var(--navy); color: var(--navy); }
+  .jury-msg .letter p { max-width: 820px; }
 
   /* ---------- Responsive ---------- */
   @media (max-width: 900px) {
@@ -405,7 +416,7 @@
     .timeline::before { display: none; }
     .steps { grid-template-columns: 1fr; }
     .repertoire { grid-template-columns: 1fr; gap: 16px; }
-    .jury { grid-template-columns: repeat(3, 1fr); }
+    .jury { grid-template-columns: repeat(2, 1fr); }
     .partners .wrap { grid-template-columns: 1fr; }
     .g-slide { flex-basis: calc((100% - 16px) / 2); }
     .contact-grid { grid-template-columns: 1fr; }
@@ -420,7 +431,7 @@
     .partner:last-child { padding-left: 0; }
     .carousel .caption strong { font-size: 17px; }
   }
-  @media (max-width: 560px) { .jury { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .jury { grid-template-columns: repeat(2, 1fr); gap: 16px; } .jury-msg { padding: 24px 20px; } }
   @media (max-width: 720px) {
     .menu { display: none; position: absolute; top: 68px; left: 0; right: 0; background: #fff; flex-direction: column; align-items: flex-start; gap: 0; border-bottom: 1px solid var(--line); padding: 8px 0 16px; }
     .menu.open { display: flex; }
@@ -452,7 +463,7 @@
   const CONFIG = {
     JOTFORM_URL: "https://www.jform.co.kr/262554272214049",
     STRIPE_URL: "",                       // e.g. "https://buy.stripe.com/xxxxxxxx"
-    CONTACT_EMAIL: "office@classicimk.com"
+    CONTACT_EMAIL: "manager@classicimk.com"
   };
 </script>
 
@@ -460,8 +471,7 @@
   <div class="wrap nav">
     <a class="brand" href="#top">
       <img class="brand-logo" src="images/imk-logo.png" alt="">
-      <span class="mark">IMK</span>
-      <span class="sub">Audition</span>
+      <span class="mark">IMK AUDITION</span>
     </a>
     <nav class="menu" id="menu">
       <div class="has-sub">
@@ -495,7 +505,7 @@
   <div class="hero">
     <div class="wrap">
       <div class="season">IMK International Concerto Audition 2027</div>
-      <h1>From Audition<br>to the <em>World Stage</em></h1>
+      <h1><span class="h1-top">From Audition to the</span><br><strong>Dvořák Hall</strong><br><span class="h1-sub">Rudolfinum, Prague</span></h1>
       <p class="lede">
         IMK invites outstanding young pianists, violinists and cellists to perform Beethoven's Triple Concerto
         with the North Czech Philharmonic Orchestra under Nayden Todorov at the 2027 New Year's Concerts
@@ -515,7 +525,7 @@
         <!-- example of a second slide:
         <div class="slide">
           <img src="images/teplice.jpg" alt="Teplice">
-          <div class="caption"><strong>Krušnohorské divadlo</strong><span>Teplice · c. 1 January 2027</span></div>
+          <div class="caption"><strong>Krušnohorské divadlo</strong><span>Teplice · 1 January 2027</span></div>
         </div>
         -->
         <button class="arrow prev" aria-label="Previous">&#8249;</button>
@@ -591,16 +601,31 @@
     </div>
   </div>
 
-  <!-- Greeting — text to be supplied by IMK; replace the .placeholder block with the letter -->
+  <!-- Greeting -->
   <div class="subpage" data-sub="greeting">
     <section>
       <div class="wrap two">
         <div>
           <div class="eyebrow">Greeting</div>
-          <h2>Welcome message</h2>
+          <h2>A message from<br>Sonja Steindl</h2>
+          <div class="signature">
+            <img class="sig-photo" src="images/sonja-steindl.jpg" alt="Sonja Steindl" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'sig-photo'}))">
+            <div class="sig-name">Sonja Steindl</div>
+            <div class="sig-role">Intendant, IMK · Initiator of IMK Audition</div>
+          </div>
         </div>
-        <div class="body">
-          <div class="placeholder">A welcome message from IMK will be published here shortly.</div>
+        <div class="body letter">
+          <p class="lead">Dear Young Musicians,</p>
+          <p>Music has been at the heart of my life for as long as I can remember.</p>
+          <p>Since moving to Vienna in 1972, I have had the privilege of living in a city where classical music is not only a great tradition, but a living part of everyday life. For the past 33 years, through IMK, I have devoted myself to bringing music to the stage and creating opportunities for artists and audiences to meet.</p>
+          <p>Over the years, I have encountered many exceptionally gifted young musicians, including scholarship students from the University of Music and Performing Arts Vienna (mdw) and the Kronberg Academy. Their dedication and extraordinary talent have deeply impressed me, but they have also reminded me of something essential: talent needs opportunity.</p>
+          <p>For a young musician, there is an enormous difference between studying a concerto and performing it with a professional orchestra in an internationally renowned concert hall. Such an experience can become an important step toward a professional career.</p>
+          <p>I came to believe that those of us who have spent our lives in classical music have a responsibility to create more of these opportunities for the next generation.</p>
+          <p>This conviction led me to initiate the IMK Audition—our first project dedicated to discovering outstanding young musicians and giving them opportunities to perform with professional orchestras on distinguished international stages.</p>
+          <p>To every young musician considering applying: believe in the work you have done, have the courage to share your artistry, and give yourself the opportunity to be heard.</p>
+          <p>I sincerely hope that IMK Audition will open new doors for talented musicians and help the next generation take meaningful steps onto the professional concert stage.</p>
+          <p>I look forward to hearing your music and seeing where your musical journey will lead you.</p>
+          <p class="closing-line"><strong>Sonja Steindl,</strong> Intendant, IMK<br>Initiator of IMK Audition</p>
         </div>
       </div>
     </section>
@@ -706,7 +731,7 @@
 
       <div class="concerts">
         <div class="card">
-          <div class="date">c. 1 January 2027<small>New Year's Concert · Teplice</small></div>
+          <div class="date">1 January 2027<small>New Year's Concert · Teplice</small></div>
           <h3>Teplice, Czech Republic</h3>
           <div class="place">Home of the North Czech Philharmonic Orchestra</div>
           <dl class="dl">
@@ -760,43 +785,66 @@
   <section>
     <div class="wrap">
       <div class="eyebrow">Jury</div>
-      <h2>Five international conductors</h2>
+      <h2>International jury</h2>
       <p class="lead" style="margin-top:18px">
-        All audition videos are reviewed by an international jury of five conductors. Each juror evaluates every
-        applicant independently; the three soloists are selected on the combined results.
+        All audition videos are reviewed by an international jury of conductors and distinguished instrumentalists.
+        Each juror evaluates every applicant independently; the three soloists are selected on the combined results.
+        Click on a juror to read their message.
       </p>
 
-      <!-- Replace each placeholder with the juror's photo, name, title and a short biography.
-           Copy/paste a .juror block to add more; the grid adjusts automatically. -->
+      <!-- Juror photos: put files in images/ as jury-todorov.jpg, jury-belli.jpg, jury-sorokow.jpg, jury-ryo.jpg -->
       <div class="jury">
-        <div class="juror">
-          <div class="photo" aria-hidden="true"></div>
-          <div class="name">To be announced</div>
+        <button class="juror has-msg" data-juror="todorov">
+          <img class="photo" src="images/jury-todorov.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'photo'}))">
+          <div class="name">Nayden Todorov</div>
+          <div class="role">Jury President · Conductor</div>
+          <div class="more">Read message</div>
+        </button>
+        <button class="juror" data-juror="belli">
+          <img class="photo" src="images/jury-belli.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'photo'}))">
+          <div class="name">Massimo Belli</div>
           <div class="role">Conductor</div>
+        </button>
+        <button class="juror" data-juror="sorokow">
+          <img class="photo" src="images/jury-sorokow.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'photo'}))">
+          <div class="name">Prof. Anton Sorokow</div>
+          <div class="role">Violin</div>
+        </button>
+        <button class="juror has-msg" data-juror="ryo">
+          <img class="photo" src="images/jury-ryo.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'photo'}))">
+          <div class="name">Prof. Meehae Ryo</div>
+          <div class="role">Cello · Artistic Director, IMK</div>
+          <div class="more">Read message</div>
+        </button>
+      </div>
+
+      <!-- Messages -->
+      <div class="jury-msg" data-juror="todorov">
+        <div class="jm-head"><div class="eyebrow">Greeting from Nayden Todorov</div><button class="jm-close" aria-label="Close">×</button></div>
+        <div class="body letter">
+          <p>It is a great pleasure to welcome the launch of the IMK International Concerto Audition.</p>
+          <p>For a young musician, one of the most important steps in artistic development is the opportunity to perform as a soloist with a professional orchestra. It is on stage, through listening, communicating and creating music together, that artistry truly comes alive.</p>
+          <p>I am especially pleased that this audition offers talented young musicians the opportunity to perform Beethoven’s Triple Concerto with the North Czech Philharmonic Orchestra at the New Year’s Concert in the magnificent Dvořák Hall of the Rudolfinum in Prague.</p>
+          <p>I warmly congratulate IMK on creating this meaningful initiative and wish all applicants inspiration, courage and success.</p>
+          <p>I look forward to meeting the selected soloists and welcoming the New Year together through Beethoven’s music on the stage of Dvořák Hall in Prague.</p>
+          <p class="closing-line"><strong>Nayden Todorov</strong><br>Conductor<br>IMK International Concerto Audition – New Year’s Concert</p>
         </div>
-        <div class="juror">
-          <div class="photo" aria-hidden="true"></div>
-          <div class="name">To be announced</div>
-          <div class="role">Conductor</div>
-        </div>
-        <div class="juror">
-          <div class="photo" aria-hidden="true"></div>
-          <div class="name">To be announced</div>
-          <div class="role">Conductor</div>
-        </div>
-        <div class="juror">
-          <div class="photo" aria-hidden="true"></div>
-          <div class="name">To be announced</div>
-          <div class="role">Conductor</div>
-        </div>
-        <div class="juror">
-          <div class="photo" aria-hidden="true"></div>
-          <div class="name">To be announced</div>
-          <div class="role">Conductor</div>
+      </div>
+      <div class="jury-msg" data-juror="ryo">
+        <div class="jm-head"><div class="eyebrow">Message from Prof. Meehae Ryo</div><button class="jm-close" aria-label="Close">×</button></div>
+        <div class="body letter">
+          <p class="lead">Dear Young Musicians,</p>
+          <p>As Artistic Director of IMK and a cellist myself, I am very pleased to welcome you to the IMK International Concerto Audition.</p>
+          <p>Throughout my life as a performer and educator, I have come to believe that young musicians grow not only through study and practice, but through the experience of standing on stage, communicating with a professional orchestra, and sharing their music with an audience.</p>
+          <p>This is why the IMK Audition is especially meaningful to me. It is designed to give talented young musicians a genuine professional opportunity—an opportunity to perform with the North Czech Philharmonic Orchestra and to appear at the New Year’s Concert in the Dvořák Hall of the Rudolfinum in Prague.</p>
+          <p>As a member of the Cello Jury, I look forward to discovering young cellists with not only excellent technique, but also individuality, musical imagination, and something meaningful to communicate through their music.</p>
+          <p>I encourage you to take this opportunity with confidence and courage. Your talent deserves not only to be recognized, but to be heard on the concert stage.</p>
+          <p>I look forward to hearing your music and wish every applicant a rewarding and inspiring experience.</p>
+          <p class="closing-line"><strong>Prof. Meehae Ryo</strong><br>Artistic Director, IMK<br>Cello Jury Member<br>IMK International Concerto Audition</p>
         </div>
       </div>
 
-      <p class="note" style="margin-top:32px">The full jury will be announced on this page. Jury decisions are final and
+      <p class="note" style="margin-top:32px">Further jury members will be announced on this page. Jury decisions are final and
       no correspondence will be entered into regarding the results.</p>
     </div>
   </section>
@@ -820,7 +868,7 @@
         <p class="lead" style="margin-top:18px">
           The IMK International Concerto Audition is open to pianists, violinists and cellists. Applicants are selected
           through a video audition. Each applicant must submit an audition video of up to 20 minutes and a completed
-          application form. The audition is evaluated by an international jury of five conductors.
+          application form. The audition is evaluated by an international jury of conductors and distinguished instrumentalists.
         </p>
 
         <div class="req">
@@ -837,7 +885,7 @@
           <div>
             <div class="num">III</div>
             <h3>Jury</h3>
-            <p>An international jury of five conductors evaluates all videos. Results are announced in the <b class="dt">first week of December 2026</b>.</p>
+            <p>An international jury of conductors and distinguished instrumentalists evaluates all videos. Results are announced in the <b class="dt">first week of December 2026</b>.</p>
           </div>
         </div>
 
@@ -865,6 +913,7 @@
               <li>The performer's hands, instrument and face must be clearly visible throughout the performance.</li>
               <li>The video must be a continuous, unedited recording of each submitted work. Only minor technical adjustments (e.g. trimming before and after the performance) are permitted.</li>
               <li>Video and audio quality must be sufficient for the jury to clearly evaluate the performance.</li>
+              <li>Resolution: Full HD (1920 × 1080). 4K is not required. The video file must not exceed <b class="dt">2 GB</b> in size (MP4 recommended).</li>
               <li>Videos recorded on or after <b class="dt">1 January 2026</b> will be accepted.</li>
               <li>The use of AI-generated performances, deepfakes, synthesised audio, or any technology that materially alters the performance is strictly prohibited.</li>
               <li>The video must be uploaded to Google Drive and shared as a link set to "Anyone with the link can view". File name: <em>Instrument_LastName_FirstName_Country.mp4</em></li>
@@ -872,11 +921,11 @@
           </div>
           <div class="rule">
             <h3>Judging</h3>
-            <p>Performances are evaluated comprehensively on musicality, technique, interpretation, expression and overall artistry by an international jury of five conductors. The decisions of the jury are final. No appeals are accepted.</p>
+            <p>Performances are evaluated comprehensively on musicality, technique, interpretation, expression and overall artistry by an international jury of conductors and distinguished instrumentalists. The decisions of the jury are final. No appeals are accepted.</p>
           </div>
           <div class="rule">
             <h3>Selection &amp; Concerts</h3>
-            <p>Three soloists — one pianist, one violinist and one cellist — are selected. The selected musicians perform Beethoven's Triple Concerto in C major, Op. 56 with the North Czech Philharmonic Orchestra under Nayden Todorov at the New Year's Concert in Teplice (<b class="dt">c. 1 January 2027</b>) and at the New Year's Concert in the Dvořák Hall of the Rudolfinum, Prague (<b class="dt">3 January 2027</b>). Details of rehearsals, travel and accommodation are communicated directly to the selected musicians.</p>
+            <p>Three soloists — one pianist, one violinist and one cellist — are selected. The selected musicians perform Beethoven's Triple Concerto in C major, Op. 56 with the North Czech Philharmonic Orchestra under Nayden Todorov at the New Year's Concert in Teplice (<b class="dt">1 January 2027</b>) and at the New Year's Concert in the Dvořák Hall of the Rudolfinum, Prague (<b class="dt">3 January 2027</b>). Details of rehearsals, travel and accommodation are communicated directly to the selected musicians.</p>
           </div>
           <div class="rule">
             <h3>Copyright &amp; Personal Data</h3>
@@ -945,7 +994,7 @@
           <h3>General notes</h3>
           <ul>
             <li>Works may be performed from memory or with the score.</li>
-            <li>Each work must be recorded as one continuous, unedited take. Separate works may be recorded separately and combined into one video.</li>
+            <li>Each work must be recorded as one continuous, unedited take.</li>
             <li>Please state the composer, work and movement in the application form exactly as performed.</li>
             <li>The jury reserves the right to disregard any portion of the video exceeding 20 minutes.</li>
           </ul>
@@ -1074,7 +1123,7 @@
       <div class="contact-grid">
         <div>
           <div class="k">Email</div>
-          <div class="v"><a data-link="mail" id="contact-email" href="#">office@classicimk.com</a></div>
+          <div class="v"><a data-link="mail" id="contact-email" href="#">manager@classicimk.com</a></div>
           <div class="s">Audition &amp; application enquiries<br>Reply within 2–3 working days</div>
         </div>
         <div>
@@ -1106,7 +1155,7 @@
 
 <footer>
   <div class="wrap">
-    <a class="brand" href="#top"><img class="brand-logo" src="images/imk-logo.png" alt=""><span class="mark">IMK</span><span class="sub">Audition</span></a>
+    <a class="brand" href="#top"><img class="brand-logo" src="images/imk-logo.png" alt=""><span class="mark">IMK AUDITION</span></a>
     <div>© <span id="year"></span> IMK. All rights reserved. · <a href="#apply">Apply</a> · <a data-link="mail" href="#">Contact</a></div>
   </div>
 </footer>
@@ -1214,6 +1263,19 @@
 
   // --- partner logo marquee: duplicate the track so the loop is seamless
   document.querySelectorAll('.marquee-track').forEach(t => { t.innerHTML += t.innerHTML; });
+
+  // --- jury: click a juror to open their message
+  (function () {
+    const jurors = document.querySelectorAll('.juror.has-msg'), msgs = document.querySelectorAll('.jury-msg');
+    function open(id) {
+      jurors.forEach(j => j.classList.toggle('active', j.dataset.juror === id));
+      msgs.forEach(m => m.classList.toggle('active', m.dataset.juror === id));
+      const m = document.querySelector('.jury-msg.active');
+      if (m) m.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    jurors.forEach(j => j.addEventListener('click', () => open(j.classList.contains('active') ? null : j.dataset.juror)));
+    document.querySelectorAll('.jm-close').forEach(b => b.addEventListener('click', () => open(null)));
+  })();
 
   // --- mobile menu ---------------------------------------------------------
   const burger = document.getElementById('burger'), menu = document.getElementById('menu');
