@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://imk-audition.com/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://imk-audition.com/og-image.jpg</image:loc>
+      <image:title>IMK International Concerto Audition 2027 — Dvořák Hall, Rudolfinum Prague</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://imk-audition.com/rudolfinum-dvorak-hall.jpg</image:loc>
+      <image:title>Dvořák Hall, Rudolfinum Prague</image:title>
+    </image:image>
+  </url>
+</urlset>
