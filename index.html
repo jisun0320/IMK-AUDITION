@@ -402,6 +402,9 @@
   .social a:hover { background: #fff; color: var(--navy); border-color: #fff; text-decoration: none; }
   .social svg { width: 18px; height: 18px; }
 
+  .qa-sec { font-size: 22px; margin-top: 44px; }
+  .qa-sec + .faq { margin-top: 12px; }
+
   /* Jury */
   .jury { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; align-items: start; }
   .juror { display: block; width: 100%; text-align: center; background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: default; }
@@ -496,13 +499,11 @@
 <!-- ============================================================
      CONFIGURATION — edit these three values each season.
      1) JOTFORM_URL   : the Jotform link (used for both the embed and the button)
-     2) STRIPE_URL    : the Stripe Payment Link for the €100 audition fee
      3) CONTACT_EMAIL : where applicants can reach IMK
      ============================================================ -->
 <script>
   const CONFIG = {
     JOTFORM_URL: "https://form.jotform.com/262643580630456",       // used for the buttons / "open in new window"
-    STRIPE_URL: "",                       // e.g. "https://buy.stripe.com/xxxxxxxx"
     CONTACT_EMAIL: "auditionimk@gmail.com"
   };
 </script>
@@ -526,6 +527,7 @@
         <div class="dd">
           <a href="#audition/application">Application</a>
           <a href="#audition/repertoire">Repertoire</a>
+          <a href="#audition/qna">Q&amp;A</a>
         </div>
       </div>
       <a href="#concerts">Concerts</a>
@@ -888,6 +890,7 @@
     <div class="wrap">
       <a href="#audition/application" data-sub="application">Application</a>
       <a href="#audition/repertoire" data-sub="repertoire">Repertoire</a>
+      <a href="#audition/qna" data-sub="qna">Q&amp;A</a>
     </div>
   </div>
 
@@ -912,7 +915,7 @@
           <div>
             <div class="num">II</div>
             <h3>Submission</h3>
-            <p>An audition video of up to 20 minutes (Google Drive link) and the completed online application form, together with the €100 audition fee.</p>
+            <p>An audition video of up to 20 minutes (Google Drive link) and the completed online application form (Jotform), including the €100 audition fee paid via PayPal within the form.</p>
           </div>
           <div>
             <div class="num">III</div>
@@ -936,19 +939,28 @@
           </div>
           <div class="rule">
             <h3>Application</h3>
-            <p>Applications are made through the official website. An application is valid only when the application form is completed and the audition fee of €100 is paid. The audition fee is non-refundable, except where the audition is cancelled by the organisers. Applications close on <b class="dt">30 November 2026, 23:59 CET</b>.</p>
+            <ul>
+              <li>Applications are made through the online application form (Jotform) on this website. An application is complete only when the application form has been submitted <em>and</em> payment of the audition fee of €100 (PayPal, at the end of the form) has been confirmed. A submitted form without payment is not considered received; the responsibility for a missed payment lies with the applicant.</li>
+              <li>Once payment has been confirmed, a confirmation e-mail is sent. If you do not receive it, please check your spam folder and then contact us by e-mail.</li>
+              <li>The audition fee is non-refundable, except where the audition is cancelled by the organisers.</li>
+              <li>Write your name in English exactly as it appears in your passport. If the payer’s name differs from the applicant’s (e.g. payment by a parent), write the payer’s (cardholder’s) name at the bottom of the application form.</li>
+              <li>Submitted applications cannot be changed. In the case of duplicate applications, the first application submitted will be evaluated.</li>
+              <li>Applicants who cannot use the online form or PayPal may request a written application form and bank transfer details by e-mail. The same deadline applies; please contact us at least 1–2 weeks before the deadline.</li>
+              <li>Applications close on <b class="dt">30 November 2026, 23:59 CET</b>.</li>
+            </ul>
           </div>
           <div class="rule">
             <h3>Video Submission</h3>
             <ul>
-              <li>The audition video may not exceed 20 minutes in total.</li>
-              <li>The performer's hands, instrument and face must be clearly visible throughout the performance.</li>
-              <li>The video must be a continuous, unedited recording of each submitted work. Only minor technical adjustments (e.g. trimming before and after the performance) are permitted.</li>
-              <li>Video and audio quality must be sufficient for the jury to clearly evaluate the performance.</li>
+              <li>The audition video may not exceed <b class="dt">20 minutes</b>. Performance time is measured from the start of the video to the end.</li>
+              <li>The video must be recorded in one continuous, unedited take from beginning to end. Video cuts, combining several takes, and audio correction or editing are not permitted. The only exception: if the recording exceeds 20 minutes, the part after the 20-minute mark may be cut off.</li>
+              <li>The camera must be fixed and may not be moved or zoomed during recording. The applicant’s face and both hands must be clearly visible throughout the video.</li>
+              <li>Video and audio quality must be sufficient for the jury to clearly evaluate the performance. Recording with a smartphone is acceptable; clarity of picture and sound matters more than the equipment.</li>
               <li>Resolution: Full HD (1920 × 1080). 4K is not required. The video file must not exceed <b class="dt">2 GB</b> in size (MP4 recommended).</li>
-              <li>Videos recorded on or after <b class="dt">1 January 2026</b> will be accepted.</li>
+              <li>Only videos recorded on or after <b class="dt">1 January 2026</b> are accepted. A video of a past performance with orchestra is acceptable if it meets all requirements.</li>
               <li>The use of AI-generated performances, deepfakes, synthesised audio, or any technology that materially alters the performance is strictly prohibited.</li>
-              <li>The video must be uploaded to Google Drive and shared as a link set to "Anyone with the link can view". <b class="dt">File name: Instrument_LastName_FirstName_Country.mp4</b></li>
+              <li>The video must be uploaded to Google Drive and shared as a link set to "Anyone with the link can view". Do not delete the link or make it private until the evaluation has been completed. <b class="dt">File name: Instrument_LastName_FirstName_Country.mp4</b></li>
+              <li>Applicants who cannot use Google Drive (e.g. in China) may contact us by e-mail for an alternative method of submission.</li>
             </ul>
           </div>
           <div class="rule">
@@ -991,50 +1003,195 @@
         <div class="eyebrow">Repertoire</div>
         <h2>Audition repertoire</h2>
         <p class="lead" style="margin-top:18px">
-          The audition video may not exceed <b class="dt">20 minutes</b> in total. Applicants perform <b class="dt">one complete movement</b>
-          from a concerto of their own choice (free choice of repertoire). The movement must be performed in its entirety, from
-          beginning to end, and recorded in one continuous take without any editing.
+          Repertoire is the applicant’s free choice. Applicants perform <b class="dt">one movement (or more) from a concerto</b>
+          of their choice — or a single-movement concerto or concertante work — recorded in one continuous take without editing.
+          The audition video may not exceed <b class="dt">20 minutes</b> in total.
         </p>
+
+        <div class="rules" style="margin-top:40px">
+          <div class="rule">
+            <h3>Duration</h3>
+            <ul>
+              <li>20 minutes is the maximum permitted time, not a target time to be filled. A shorter movement is not a disadvantage.</li>
+              <li>Performance time is measured from the start of the video to the end.</li>
+              <li>If the chosen movement or work exceeds 20 minutes, play continuously from the beginning and submit the video only up to the 20-minute mark. Skipping a section or joining different sections together is not permitted.</li>
+              <li>Any movement may be chosen (first, second, third, etc.). Two or more movements may be performed in succession, provided the total time does not exceed 20 minutes; if the 20-minute mark is reached during the next movement, submit only up to that point.</li>
+              <li>Single-movement concertos and concertante works (e.g. Rachmaninoff <em>Rhapsody on a Theme of Paganini</em>, Gershwin <em>Rhapsody in Blue</em>, Liszt <em>Totentanz</em>) are permitted.</li>
+            </ul>
+          </div>
+          <div class="rule">
+            <h3>Cuts</h3>
+            <ul>
+              <li>The solo part may not be shortened. Omitting a section in the middle of the solo part, or cutting and joining different sections together, is not permitted.</li>
+              <li>Customary cuts or reductions of the orchestral tutti passages are permitted, within the range used in published piano reductions or in general performance practice (e.g. shortening a long orchestral passage in which the soloist rests).</li>
+            </ul>
+          </div>
+          <div class="rule">
+            <h3>Cadenza</h3>
+            <ul>
+              <li>If the cadenza falls within the 20 minutes, it must be performed. Skipping the cadenza and joining the following section to what precedes it is not permitted.</li>
+              <li>Any cadenza is acceptable — the composer’s, one by another composer or performer, or the applicant’s own. State the composer of the cadenza in the application form.</li>
+            </ul>
+          </div>
+          <div class="rule">
+            <h3>Accompaniment &amp; score</h3>
+            <ul>
+              <li>Accompaniment: piano reduction or orchestra.</li>
+              <li>Playing from memory is not required; the score may be used.</li>
+              <li>Please state the composer, work and movement(s) in the application form exactly as performed.</li>
+            </ul>
+          </div>
+        </div>
 
         <div class="rep-grid">
           <div class="rep">
             <div class="rep-head"><h3>Piano</h3><span>Maximum 20 minutes</span></div>
             <ul>
-              <li>One complete movement from a piano concerto of the applicant's choice, performed in its entirety from beginning to end.</li>
+              <li>One or more movements from a piano concerto of the applicant’s choice, or a single-movement work for piano and orchestra.</li>
               <li>Accompaniment: piano reduction (second piano) or orchestra.</li>
-              <li>Standard cuts or reductions of the orchestral tutti passages are permitted. Cuts to the solo part are not permitted.</li>
-              <li>If the movement contains a cadenza, the cadenza must be included in the performance.</li>
+              <li>Cuts to the solo part are not permitted; customary tutti cuts are permitted.</li>
             </ul>
           </div>
           <div class="rep">
             <div class="rep-head"><h3>Violin</h3><span>Maximum 20 minutes</span></div>
             <ul>
-              <li>One complete movement from a violin concerto of the applicant's choice, performed in its entirety without arbitrary cuts, omissions or edits to the solo part.</li>
+              <li>One or more movements from a violin concerto of the applicant’s choice, or a single-movement work for violin and orchestra.</li>
               <li>Accompaniment: piano reduction or orchestra.</li>
-              <li>Standard cuts or reductions of the orchestral tutti passages are permitted. Cuts to the solo part are not permitted.</li>
-              <li>If the movement contains a cadenza, the cadenza must be included in the performance.</li>
+              <li>Cuts to the solo part are not permitted; customary tutti cuts are permitted.</li>
             </ul>
           </div>
           <div class="rep">
             <div class="rep-head"><h3>Cello</h3><span>Maximum 20 minutes</span></div>
             <ul>
-              <li>One complete movement from a cello concerto of the applicant's choice, performed in its entirety without cuts to the solo part.</li>
+              <li>One or more movements from a cello concerto of the applicant’s choice, or a single-movement work for cello and orchestra.</li>
               <li>Accompaniment: piano reduction or orchestra.</li>
-              <li>Standard cuts or reductions of the orchestral tutti passages are permitted. Cuts to the solo part are not permitted.</li>
-              <li>If the movement contains a cadenza, the cadenza must be included in the performance.</li>
+              <li>Cuts to the solo part are not permitted; customary tutti cuts are permitted.</li>
             </ul>
           </div>
         </div>
+      </div>
+    </section>
+  </div>
+<!-- Q&A -->
+  <div class="subpage" data-sub="qna">
+    <section>
+      <div class="wrap">
+        <div class="eyebrow">Q&amp;A</div>
+        <h2>Frequently asked questions</h2>
+        <p class="lead" style="margin-top:18px">
+          Answers to the questions we are asked most often about repertoire, timing, video submission,
+          application and payment. If your question is not answered here, please contact us at
+          <a data-link="mail" href="#">auditionimk@gmail.com</a>.
+        </p>
 
-        <div class="rep-note">
-          <h3>General notes</h3>
-          <ul>
-            <li>Works may be performed from memory or with the score.</li>
-            <li>Each work must be recorded as one continuous, unedited take.</li>
-            <li>Please state the composer, concerto and movement in the application form exactly as performed.</li>
-            <li>The jury reserves the right to disregard any portion of the video exceeding 20 minutes.</li>
-          </ul>
-        </div>
+      <h3 class="qa-sec">1. Repertoire and performance time</h3>
+      <div class="faq">
+        <details>
+          <summary>Do I have to perform one movement within 20 minutes, or do I have to choose a movement that is 20 minutes long?</summary>
+          <div class="a">20 minutes is the maximum permitted time, not a target time to be filled. An 8-minute movement and an 18-minute movement are both acceptable, and a shorter performance time is not a disadvantage.<br><br>If the movement you have chosen exceeds 20 minutes, play continuously from the beginning of the movement and submit the video only up to the 20-minute mark. Skipping the middle section or joining several sections together is not permitted.</div>
+        </details>
+        <details>
+          <summary>The movement I want to play is slightly longer than 20 minutes. May I shorten part of it?</summary>
+          <div class="a">The solo part may not be shortened. There are two options:<br>1. Apply the customary cuts to the orchestral tutti passages so that the movement fits within 20 minutes.<br>2. Play from the beginning of the movement, stop at the 20-minute mark, and submit only up to that point.<br><br>In both cases, omitting a section in the middle of the solo part, or cutting and joining different sections together, is not permitted.</div>
+        </details>
+        <details>
+          <summary>How is the performance time measured?</summary>
+          <div class="a">It is measured from the start of the video to the end.</div>
+        </details>
+        <details>
+          <summary>Do I have to play the first movement?</summary>
+          <div class="a">No. You may freely choose any movement — the first, second, third, etc.</div>
+        </details>
+        <details>
+          <summary>May I play two or more movements?</summary>
+          <div class="a">Yes. If the movement you have chosen is shorter than 20 minutes, you may play that movement to the end and then continue with the next movement. However, the total performance time may not exceed 20 minutes. If the 20-minute mark is reached while you are playing the next movement, please submit only up to that point.</div>
+        </details>
+        <details>
+          <summary>Are single-movement concertos or concertante works (e.g. Rachmaninoff <em>Rhapsody on a Theme of Paganini</em>, Gershwin <em>Rhapsody in Blue</em>, Liszt <em>Totentanz</em>) allowed?</summary>
+          <div class="a">Yes. If the work exceeds 20 minutes, play from the beginning and submit only up to the 20-minute mark.</div>
+        </details>
+        <details>
+          <summary>Whose cadenza should I play?</summary>
+          <div class="a">Any cadenza is acceptable — the composer’s cadenza, a cadenza by another composer or performer, or a cadenza composed by yourself. Please state the composer of the cadenza you use in the application form.</div>
+        </details>
+        <details>
+          <summary>May I omit the cadenza?</summary>
+          <div class="a">If the cadenza falls within the 20 minutes, it must be performed. Skipping the cadenza and joining the following section to what precedes it is not permitted.</div>
+        </details>
+        <details>
+          <summary>Do I have to play from memory?</summary>
+          <div class="a">No. Playing from memory is not required; you may perform with the score.</div>
+        </details>
+        <details>
+          <summary>How much may be cut when cutting the tutti passages?</summary>
+          <div class="a">Cuts are permitted within the range used in published piano reductions or in general performance practice. A typical example is shortening a long orchestral passage in which the soloist rests. The solo part may not be shortened.</div>
+        </details>
+      </div>
+
+      <h3 class="qa-sec">2. Video submission</h3>
+      <div class="faq">
+        <details>
+          <summary>May I edit the video?</summary>
+          <div class="a">No. The video must be recorded in one continuous, unedited take from beginning to end. Video cuts, combining several takes, and audio correction or editing are all not permitted. The only exception: if the video exceeds 20 minutes, cutting off the part after the 20-minute mark is permitted.</div>
+        </details>
+        <details>
+          <summary>Is there anything I should pay attention to when recording?</summary>
+          <div class="a">The camera must be fixed. The camera may not be moved or zoomed during recording. The applicant’s face and both hands must be visible throughout the video. Sound quality is important for the evaluation, so please check the recording conditions in advance.</div>
+        </details>
+        <details>
+          <summary>Until when must the video have been recorded?</summary>
+          <div class="a">Only videos recorded on or after 1 January 2026 are accepted.</div>
+        </details>
+        <details>
+          <summary>May I record with a smartphone?</summary>
+          <div class="a">Yes. The clarity of the picture and the sound quality matter more than the recording equipment.</div>
+        </details>
+        <details>
+          <summary>How do I submit the video?</summary>
+          <div class="a">Please submit the video as a Google Drive link. Do not delete the link or change it to private until the evaluation has been completed.</div>
+        </details>
+        <details>
+          <summary>May I change the video after submitting?</summary>
+          <div class="a">Submitted applications cannot be changed. In the case of duplicate applications, the first application submitted will be evaluated.</div>
+        </details>
+      </div>
+
+      <h3 class="qa-sec">3. Application and payment</h3>
+      <div class="faq">
+        <details>
+          <summary>When is my application complete?</summary>
+          <div class="a">The application is complete only once payment of the audition fee has been confirmed. Even if you have submitted the application form, it is not considered received if payment has not been made. If an application is not received because payment was missed, the responsibility lies with the applicant. Please make sure to complete the payment after submitting the application form.</div>
+        </details>
+        <details>
+          <summary>How can I check that my application has been received?</summary>
+          <div class="a">Once payment has been confirmed, a confirmation e-mail will be sent. If you have not received the e-mail, please check your spam folder and then contact us by e-mail.</div>
+        </details>
+        <details>
+          <summary>Can the audition fee be refunded?</summary>
+          <div class="a">Once paid, the fee is not refundable, except where the audition is cancelled by the organisers.</div>
+        </details>
+        <details>
+          <summary>How should I write my name on the application form?</summary>
+          <div class="a">Please write your name in English exactly as it appears in your passport. If the name of the payer differs from that of the applicant (e.g. payment by a parent), please write the payer’s (cardholder’s) name separately at the bottom of the application form.</div>
+        </details>
+      </div>
+
+      <h3 class="qa-sec">4. If you cannot use the online application form or PayPal (including information for applicants from China)</h3>
+      <div class="faq">
+        <details>
+          <summary>I cannot access the online application form (Jotform), or payment by PayPal is difficult for me.</summary>
+          <div class="a">Please contact us by e-mail. We will send you a written application form and provide instructions for paying the audition fee by bank transfer. International transfer fees are borne by the applicant. Please be sure to state the applicant’s name when making the transfer.</div>
+        </details>
+        <details>
+          <summary>Google cannot be used in China. How do I submit my video?</summary>
+          <div class="a">Please contact us by e-mail and we will provide an alternative method of submission.</div>
+        </details>
+        <details>
+          <summary>Does the same deadline apply to written applications?</summary>
+          <div class="a">Yes. Both the written application form and the payment of the audition fee must be completed by the same deadline. As the procedure may take some time, please contact us at least 1–2 weeks before the deadline.</div>
+        </details>
+      </div>
+
       </div>
     </section>
   </div>
@@ -1054,30 +1211,32 @@
           "Anyone with the link can view" and copy the link.</p>
         </div>
         <div class="step">
-          <h3>Pay the audition fee</h3>
-          <p>Pay the non-refundable fee of €100 by card through our secure payment page. Keep the payment
-          confirmation email — you will enter the payer's name in the form.</p>
-          <a class="btn solid" data-link="stripe" href="#" target="_blank" rel="noopener">Pay €100 audition fee</a>
+          <h3>Complete the application form</h3>
+          <p>Fill in the online application form (Jotform) with your details, biography, photo and Google Drive link.
+          Write your name exactly as it appears in your passport. The €100 audition fee is paid via PayPal at the end
+          of the form — the application is complete only once payment has been made.</p>
+          <a class="btn solid" data-link="jotform" href="#" target="_blank" rel="noopener">Open application form</a>
         </div>
         <div class="step">
-          <h3>Submit the application form</h3>
-          <p>Complete the online form below with your details, biography, photo, Google Drive link and payment
-          reference. You will receive a confirmation email once submitted.</p>
-          <a class="btn" data-link="jotform" href="#" target="_blank" rel="noopener">Open form in new window</a>
+          <h3>Receive your confirmation</h3>
+          <p>Once your payment has been confirmed, you will receive a confirmation e-mail. If it does not arrive,
+          please check your spam folder and then contact us at <a data-link="mail" href="#">auditionimk@gmail.com</a>.
+          Submitted applications cannot be changed.</p>
         </div>
       </div>
 
       <div class="fee">
         <div>
           <div class="amount">€100<small>Audition fee · non-refundable</small></div>
-          <p class="note">Payments are processed securely by Stripe to IMK, Vienna. All major cards are accepted in
-          any currency; the charge is made in euros.</p>
+          <p class="note">The fee is paid via PayPal within the application form. If you are unable to use PayPal, please
+            contact us by e-mail and we will provide bank transfer details (international transfer fees are borne by the applicant).</p>
         </div>
         <div>
           <h3 style="margin-bottom:14px">Before you submit, please check</h3>
           <ul>
-            <li>Your video is no longer than 20 minutes and the Drive link opens without a permission request.</li>
-            <li>Your fee has been paid and you have the confirmation from Stripe.</li>
+            <li>Your video is no longer than 20 minutes, recorded in one continuous take, and the Google Drive link opens without a permission request.</li>
+            <li>Your name on the form matches your passport; if someone else pays, the payer’s name is written at the bottom of the form.</li>
+            <li>You completed the PayPal payment at the end of the form — the application is complete only once payment is confirmed.</li>
             <li>Your biography (max. 200 words) and a recent photo are ready to upload.</li>
             <li>You are available in the Czech Republic from late December 2026 to 3 January 2027.</li>
           </ul>
@@ -1089,7 +1248,7 @@
         <div class="eyebrow">Application form</div>
         <h3>IMK International Concerto Audition 2027</h3>
         <p>The application form is hosted securely on Jotform and opens in a new window. Please have your Google Drive
-        link, biography, photo and payment confirmation ready before you start.</p>
+        link, biography and photo ready before you start. The €100 fee is paid via PayPal at the end of the form.</p>
         <a class="btn solid" data-link="jotform" href="#" target="_blank" rel="noopener">Open application form</a>
         <p class="help-note-inline">If the form or payment page does not load properly, or if you experience any technical
         difficulties while applying, please contact the organiser at <a data-link="mail" href="#">auditionimk@gmail.com</a>.
@@ -1098,45 +1257,6 @@
     </div>
   </section>
 
-  <!-- FAQ (part of the How to Apply page) -->
-  <section class="tint">
-    <div class="wrap">
-      <div class="eyebrow">Questions</div>
-      <h2>Frequently asked</h2>
-      <div class="faq">
-        <details>
-          <summary>Is there an age limit?</summary>
-          <div class="a">The audition is intended for young musicians at the start of their professional careers.
-          Please contact us if you are unsure whether you are eligible.</div>
-        </details>
-        <details>
-          <summary>What should I play in my audition video?</summary>
-          <div class="a">Repertoire is your choice. The jury is primarily looking for musicianship, technical command
-          and stage presence. Including a passage from Beethoven's Triple Concerto is welcome but not required.</div>
-        </details>
-        <details>
-          <summary>Can I apply as a pre-formed trio?</summary>
-          <div class="a">Applications are individual. Members of an existing trio are welcome to apply separately
-          and may mention their ensemble in the biography; however, the jury selects each soloist independently.</div>
-        </details>
-        <details>
-          <summary>Are travel and accommodation covered?</summary>
-          <div class="a">Details of travel, accommodation and rehearsal schedules will be communicated directly to the
-          selected musicians after the announcement in December.</div>
-        </details>
-        <details>
-          <summary>Is the audition fee refundable?</summary>
-          <div class="a">No. The €100 fee covers the administration of the audition and is non-refundable in all cases,
-          including incomplete or withdrawn applications.</div>
-        </details>
-        <details>
-          <summary>How will I know my application was received?</summary>
-          <div class="a">You will receive an automatic confirmation email after submitting the form. If you do not
-          receive one within 24 hours, please check your spam folder and then contact us.</div>
-        </details>
-      </div>
-    </div>
-  </section>
 </div>
 
 <!-- ================= CONTACT ================= -->
@@ -1232,15 +1352,6 @@
   const set = (sel, href) => document.querySelectorAll(sel).forEach(a => { a.href = href; });
   set('[data-link="mail"]', 'mailto:' + CONFIG.CONTACT_EMAIL);
   document.getElementById('contact-email').textContent = CONFIG.CONTACT_EMAIL;
-
-  if (CONFIG.STRIPE_URL) {
-    set('[data-link="stripe"]', CONFIG.STRIPE_URL);
-  } else {
-    document.querySelectorAll('[data-link="stripe"]').forEach(a => {
-      a.removeAttribute('target');
-      a.addEventListener('click', e => { e.preventDefault(); alert('Payment link coming soon.'); });
-    });
-  }
 
   if (CONFIG.JOTFORM_URL) {
     set('[data-link="jotform"]', CONFIG.JOTFORM_URL);
