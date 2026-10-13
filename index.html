@@ -15,7 +15,7 @@
 <title>IMK AUDITION — From Audition to the Dvořák Hall</title>
 <meta name="description" content="IMK International Concerto Audition 2027. Perform Beethoven's Triple Concerto with the North Czech Philharmonic Orchestra at the Rudolfinum, Prague. Piano · Violin · Cello. Deadline 30 November 2026.">
 <meta property="og:title" content="IMK AUDITION — From Audition to the Dvořák Hall, Rudolfinum Prague">
-<meta property="og:description" content="Beethoven Triple Concerto · New Year's Concerts in Prague & Teplice · January 2027. Video audition open to pianists, violinists and cellists worldwide.">
+<meta property="og:description" content="Beethoven Triple Concerto · New Year's Concert at the Dvořák Hall, Rudolfinum, Prague · 3 January 2027. Video audition open to pianists, violinists and cellists worldwide.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -190,6 +190,8 @@
 
   /* Concerts */
   .concerts { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 56px; }
+  .concerts.one { grid-template-columns: minmax(0, 620px); justify-content: center; }
+  .concerts.one .card.featured::before { display: none; }
   .card {
     border: 1px solid var(--line); background: #fff; padding: 36px 34px;
     position: relative;
@@ -405,6 +407,16 @@
   .qa-sec { font-size: 22px; margin-top: 44px; }
   .qa-sec + .faq { margin-top: 12px; }
 
+  /* Benefits (Concerts page) */
+  .benefits { margin-top: clamp(48px, 7vw, 72px); }
+  .ben-title { font-size: clamp(24px, 2.6vw, 30px); margin-bottom: 28px; }
+  .ben-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .ben { background: #fff; padding: 28px 26px; }
+  .ben-k { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+  .ben p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--text); text-align: left; }
+  @media (max-width: 860px) { .ben-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .ben-grid { grid-template-columns: 1fr; } }
+
   /* Jury */
   .jury { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; align-items: start; }
   .juror { display: block; width: 100%; text-align: center; background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: default; }
@@ -550,8 +562,8 @@
       <h1><span class="h1-top">From Audition to the</span><br><strong>Dvořák Hall</strong><br><span class="h1-sub">Rudolfinum, Prague</span></h1>
       <p class="lede">
         IMK invites outstanding young pianists, violinists and cellists to perform Beethoven's Triple Concerto
-        with the North Czech Philharmonic Orchestra under Nayden Todorov at the 2027 New Year's Concerts
-        in Prague and Teplice.
+        with the North Czech Philharmonic Orchestra under Nayden Todorov at the 2027 New Year's Concert
+        at the Dvořák Hall of the Rudolfinum in Prague.
       </p>
       <div class="cta">
         <a class="btn solid" data-link="jotform" href="https://form.jotform.com/262643580630456" target="_blank" rel="noopener">Apply Now</a>
@@ -565,10 +577,7 @@
           <div class="caption"><strong>Dvořák Hall, Rudolfinum</strong><span>Prague · 3 January 2027</span></div>
         </div>
         <!-- example of a second slide:
-        <div class="slide">
-          <img src="images/teplice.jpg" alt="Teplice">
-          <div class="caption"><strong>Krušnohorské divadlo</strong><span>Teplice · 1 January 2027</span></div>
-        </div>
+
         -->
         <button class="arrow prev" aria-label="Previous">&#8249;</button>
         <button class="arrow next" aria-label="Next">&#8250;</button>
@@ -753,36 +762,21 @@
   <section>
     <div class="wrap">
       <div class="eyebrow">Selected soloists’ concerts</div>
-      <h2>Two Concerts. Two Cities. One Exceptional Opportunity.</h2>
+      <h2>One Masterpiece. One Exceptional Stage.</h2>
       <div class="body" style="margin-top:18px">
         <p class="lead">
           The three selected soloists will be invited to perform Beethoven’s Triple Concerto in C Major, Op. 56 with the
-          North Czech Philharmonic Orchestra in two distinguished New Year’s concerts.
+          North Czech Philharmonic Orchestra at the New Year’s Concert in the prestigious Dvořák Hall of the Rudolfinum in Prague.
         </p>
         <p>
-          The first performance will take place in Teplice as part of the orchestra’s official New Year’s Concert,
-          followed by a second appearance at the prestigious Dvořák Hall of the Rudolfinum in Prague.
+          Presented in 2027, the bicentenary year of Beethoven’s death, this performance offers the selected musicians
+          a rare opportunity to appear as soloists with a professional European orchestra on one of Europe’s most
+          celebrated concert stages.
         </p>
-        <p>
-          Presented in 2027, the bicentenary year of Beethoven’s death, these performances offer the selected musicians
-          a rare opportunity to appear as soloists with a professional European orchestra on two distinguished stages
-          in the Czech Republic.
-        </p>
-        <p class="tagline">Two cities. Two performances. Three selected soloists.<br>One remarkable step onto the international stage.</p>
+        <p class="tagline">Three selected soloists. One masterpiece.<br>One remarkable step onto the international stage.</p>
       </div>
 
-      <div class="concerts">
-        <div class="card">
-          <div class="date">1 January 2027<small>New Year's Concert · Teplice</small></div>
-          <h3>Teplice, Czech Republic</h3>
-          <div class="place">Home of the North Czech Philharmonic Orchestra</div>
-          <dl class="dl">
-            <dt>Orchestra</dt><dd>North Czech Philharmonic Orchestra</dd>
-            <dt>Conductor</dt><dd>Nayden Todorov</dd>
-            <dt>Note</dt><dd>Exact date and venue to be confirmed with the selected musicians</dd>
-            <dt>Website</dt><dd><a href="https://www.severoceskafilharmonie.cz/en/" target="_blank" rel="noopener">severoceskafilharmonie.cz ↗</a></dd>
-          </dl>
-        </div>
+      <div class="concerts one">
         <div class="card featured">
           <div class="date">3 January 2027<small>19:30 · New Year's Concert · Prague</small></div>
           <h3>Dvořák Hall, Rudolfinum</h3>
@@ -801,6 +795,38 @@
         <div class="work">
           Ludwig van Beethoven — Triple Concerto in C major, Op. 56
           <span>for Piano, Violin, Cello and Orchestra</span>
+        </div>
+      </div>
+
+      <!-- BENEFITS for selected soloists -->
+      <div class="benefits">
+        <div class="eyebrow">Benefits for the selected soloists</div>
+        <h3 class="ben-title">What each selected soloist receives</h3>
+        <div class="ben-grid">
+          <div class="ben">
+            <div class="ben-k">Performance</div>
+            <p>A performance as soloist in Beethoven’s Triple Concerto with the North Czech Philharmonic Orchestra at the New Year’s Concert in the Dvořák Hall of the Rudolfinum, Prague.</p>
+          </div>
+          <div class="ben">
+            <div class="ben-k">Airfare support</div>
+            <p>USD&nbsp;500 for soloists residing in Europe, or USD&nbsp;1,000 for soloists residing outside Europe.</p>
+          </div>
+          <div class="ben">
+            <div class="ben-k">Accommodation</div>
+            <p>A 4-star hotel for 5 days / 4 nights, breakfast included.</p>
+          </div>
+          <div class="ben">
+            <div class="ben-k">Airport pickup</div>
+            <p>Airport pickup in the concert city.</p>
+          </div>
+          <div class="ben">
+            <div class="ben-k">Concert video</div>
+            <p>After the performance, a video record of the concert is provided to the soloist for their own reference.</p>
+          </div>
+          <div class="ben">
+            <div class="ben-k">Certificate</div>
+            <p>An official certificate of participation as a selected soloist of the IMK International Concerto Audition.</p>
+          </div>
         </div>
       </div>
 
@@ -997,7 +1023,7 @@
           </div>
           <div class="rule">
             <h3>Selection &amp; Concerts</h3>
-            <p>Three soloists — one pianist, one violinist and one cellist — are selected. The selected musicians perform Beethoven's Triple Concerto in C major, Op. 56 with the North Czech Philharmonic Orchestra under Nayden Todorov at the New Year's Concert in Teplice (<b class="dt">1 January 2027</b>) and at the New Year's Concert in the Dvořák Hall of the Rudolfinum, Prague (<b class="dt">3 January 2027</b>). Details of rehearsals, travel and accommodation are communicated directly to the selected musicians.</p>
+            <p>Three soloists — one pianist, one violinist and one cellist — are selected. The selected musicians perform Beethoven's Triple Concerto in C major, Op. 56 with the North Czech Philharmonic Orchestra under Nayden Todorov at the New Year's Concert in the Dvořák Hall of the Rudolfinum, Prague (<b class="dt">3 January 2027</b>). Details of rehearsals are communicated directly to the selected musicians. See the Concerts page for the benefits provided to the selected soloists.</p>
           </div>
           <div class="rule">
             <h3>Copyright &amp; Personal Data</h3>
